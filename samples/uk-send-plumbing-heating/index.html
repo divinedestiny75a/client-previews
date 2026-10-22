@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Plumbing & Heating Ltd | Gas Safe Boiler Breakdowns & Unvented Hot Water Systems | Send & Woking, Surrey</title>
+  <meta name="description" content="From middle-of-the-night combi boiler breakdowns to unvented Megaflo cylinder installations, Send Plumbing & Heating delivers guaranteed Surrey craftsmanship with zero hidden fees.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080d1a;
+      --surface: #0f172a;
+      --surface-card: #1e293b;
+      --border: rgba(56, 189, 248, 0.2);
+      --border-accent: rgba(56, 189, 248, 0.45);
+      --primary: #38bdf8;
+      --accent-grad: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      --badge-bg: rgba(56, 189, 248, 0.12);
+      --badge-text: #7dd3fc;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 60%, rgba(56, 189, 248, 0.2) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top UK Emergency Bar */
+    .emergency-bar {
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+      font-size: 0.85rem;
+      backdrop-filter: blur(10px);
+    }
+    .emergency-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .emergency-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .uk-badge {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: 1px solid var(--border-accent);
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.76rem;
+    }
+    .emergency-phone {
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .emergency-phone:hover { color: var(--primary); }
+
+    /* Main Navigation */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(10, 15, 25, 0.85);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-accent);
+      color: var(--primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .brand-text h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+    }
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .nav-cta {
+      background: var(--accent-grad);
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    /* Hero Section */
+    .hero {
+      padding: 70px 0 60px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--badge-bg);
+      border: 1px solid var(--border-accent);
+      color: var(--badge-text);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+    .hero h2 span {
+      color: var(--primary);
+    }
+    .hero p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent-grad);
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .btn-secondary {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: white;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      height: 260px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Interactive Calculator Section */
+    .calculator-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 45px 36px;
+      margin: 40px 0 70px;
+    }
+    .calc-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+    .calc-header h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .calc-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .calc-slider-box {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+    input[type=range] {
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: rgba(255,255,255,0.15);
+      outline: none;
+      margin-bottom: 25px;
+      accent-color: var(--primary);
+    }
+    .price-output-box {
+      background: var(--surface);
+      border: 1px solid var(--border-accent);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .price-output-box h4 {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .price-display {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    /* Trust & Guarantee Grid */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 70px;
+    }
+    .trust-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .trust-card h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .trust-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    footer a { color: var(--text); text-decoration: none; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Emergency Dispatch Bar -->
+  <div class="emergency-bar">
+    <div class="container emergency-inner">
+      <div class="emergency-badges">
+        <span class="uk-badge">🛡️ Gas Safe Registered #582104</span><span class="uk-badge">🛡️ Surrey Guild of Master Trades</span><span class="uk-badge">🛡️ £5,000,000 Public Liability</span>
+      </div>
+      <div>
+        <a href="tel:01483490981" class="emergency-phone">
+          📞 Direct Dispatch: 01483 490981
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-mark">SP</div>
+        <div class="brand-text">
+          <h1>Send Plumbing & Heating Ltd</h1>
+          <p>Send & Woking, Surrey • Send, Woking, Guildford & Surrey Hills</p>
+        </div>
+      </a>
+      <a href="tel:01483490981" class="nav-cta">
+        Book Service / Quote
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          ✦ Gas Safe Registered #582104 • Send & Woking, Surrey
+        </div>
+        <h2>Surrey's Premier Gas Safe Engineers & <span>Emergency Heating Specialists.</span></h2>
+        <p>From middle-of-the-night combi boiler breakdowns to unvented Megaflo cylinder installations, Send Plumbing & Heating delivers guaranteed Surrey craftsmanship with zero hidden fees.</p>
+        <div class="hero-buttons">
+          <a href="tel:01483490981" class="btn-primary">
+            📞 Call 01483 490981
+          </a>
+          <a href="mailto:sendplumbingandheating@gmail.com?subject=Quote%20Request%20-%20Send Plumbing & Heating Ltd" class="btn-secondary">
+            ✉️ Email Dispatch (sendplumbingandheating@gmail.com)
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-card">
+        <div class="hero-image-wrap">
+          <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=2000&q=80" alt="Gas Safe Boiler Breakdowns & Unvented Hot Water Systems in Send & Woking, Surrey">
+        </div>
+        <div class="card-meta">
+          <span>📍 Operating Across GU23 & Region</span>
+          <span style="color: #10b981; font-weight: 700;">● Active Dispatch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Project Estimator -->
+  <section class="container">
+    <div class="calculator-section">
+      <div class="calc-header">
+        <h3>Instant Project Investment Estimator</h3>
+        <p>Adjust the slider to your property dimensions to calculate estimated investment tiers for Send & Woking, Surrey.</p>
+      </div>
+
+      <div class="calc-slider-box">
+        <div class="slider-labels">
+          <span>Property Size / Radiator Count:</span>
+          <span id="sliderVal" style="color: var(--primary);">10 Radiators</span>
+        </div>
+        <input type="range" id="unitSlider" min="6" max="24" step="2" value="10" oninput="calcEstimate()">
+
+        <div class="price-output-box">
+          <div>
+            <h4>Estimated Investment</h4>
+            <div class="price-display" id="priceDisplay">Calculating...</div>
+          </div>
+          <div>
+            <a href="tel:01483490981" class="btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">
+              Confirm Written Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges & Guarantee Grid -->
+  <section class="container">
+    <div class="trust-grid">
+      <div class="trust-card">
+        <h4>🛡️ Fully Accredited & Vetted</h4>
+        <p>Gas Safe Registered #582104 and Surrey Guild of Master Trades. Fully vetted engineers adhering strictly to British building standards.</p>
+      </div>
+      <div class="trust-card">
+        <h4>⚡ Upfront British Pricing</h4>
+        <p>No hidden fees, no mileage surcharges. Written itemized estimates provided before any tools touch your property.</p>
+      </div>
+      <div class="trust-card">
+        <h4>🔒 Comprehensive Guarantee</h4>
+        <p>Backed by our 10-year workmanship guarantee and full £5,000,000 public liability insurance for total peace of mind.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 6px;"><strong>Send Plumbing & Heating Ltd</strong> • Serving Send, Woking, Guildford & Surrey Hills</p>
+      <p style="font-size: 0.82rem; margin-bottom: 12px;">Direct Phone: 01483 490981 | Email: sendplumbingandheating@gmail.com</p>
+      <p style="font-size: 0.78rem; color: #64748b;">© 2026 Send Plumbing & Heating Ltd. All rights reserved. Handcrafted by Antigravity Digital Agency.</p>
+    </div>
+  </footer>
+
+  <script>
+    function calcEstimate() {
+      const val = parseInt(document.getElementById('unitSlider').value);
+      document.getElementById('sliderVal').innerText = val + " Radiators";
+      const low = 850 + (val * 180);
+      const high = 850 + (val * 240);
+      document.getElementById('priceDisplay').innerText = "£" + low.toLocaleString() + " – £" + high.toLocaleString();
+    }
+    calcEstimate();
+  </script>
+</body>
+</html>

@@ -10,8 +10,9 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 BASE_DIR = r"c:\Users\Richi\OneDrive\Desktop\antigravity\13_Website_Design_Agency"
 CONFIG_FILE = os.path.join(BASE_DIR, "email_credentials.json")
-LEADS_FILE = os.path.join(BASE_DIR, "uk_50_trade_leads.json")
-LOG_FILE = os.path.join(BASE_DIR, "UK_OUTREACH_DISPATCH_LOG.json")
+LOG_FILE = os.path.join(BASE_DIR, "UK_VERIFIED_DISPATCH_LOG.json")
+
+from generate_10_uk_sites import uk_businesses
 
 def load_credentials():
     if not os.path.exists(CONFIG_FILE):
@@ -20,35 +21,37 @@ def load_credentials():
         return json.load(f)
 
 def build_uk_email(lead):
+    sample_url = f"https://skyking-client-previews.surge.sh/samples/{lead['id']}/"
     subject = f"{lead['name']}: built a live website prototype for your team (£99 flat)"
     
     body = f"""Hi {lead['name']} Team,
 
-I'll keep this short because I know you're busy on jobs across {lead['location']}.
+I'll keep this short because I know you're busy running jobs across {lead['location']}.
 
-I was looking through trade listings on the {lead['source']} directory and noticed something surprising: you have great local feedback and craftsmanship, but when homeowners in {lead['location']} search for your business on their phone, they hit a dead end with no official website.
+I was doing research on top-rated {lead['category'].lower()} specialists in {lead['location']} and noticed something surprising: you have great local reputation and craft, but when homeowners in {lead['postcode']} search for your business on their mobile phone, they hit a dead end with no official website.
 
-Right now, big out-of-town franchises and lead-broker middle-men on platforms like Checkatrade and Bark are charging you hundreds in monthly listing fees, while taking high-ticket {lead['category'].lower()} jobs right in your local postcodes ({lead['postcode']}).
+Meanwhile, out-of-town franchises and lead-broker middle-men on platforms like Checkatrade and Bark charge you hundreds in monthly fees while scooping up high-ticket jobs in your own backyard.
 
-Instead of pitching you, I decided to build you the solution upfront.
+Instead of sending you an annoying pitch, I decided to build you the solution upfront.
 
-Last night, I designed and coded an ultra-modern, high-speed mobile prototype custom-tailored for {lead['name']}. It is live right now:
+Last night, I designed and coded an ultra-modern, high-speed mobile prototype custom-tailored specifically for {lead['name']}. It is 100% functional and live right now:
 
-👉 Live Interactive Prototype: https://skyking-client-previews.surge.sh/
+👉 Live Interactive Prototype for {lead['name']}:
+{sample_url}
 
-What we built into this:
-• 1-Click Mobile Call Routing straight to your trade line ({lead['phone']})
-• Instant Project Quote Estimator (filters out tire-kickers and sends real homeowner jobs to your email)
-• Verified Trade Trust Badges ({lead['badge']} & £5M Public Liability Badges)
+Take 30 seconds to tap around on your phone:
+• 1-Click Mobile Call Routing straight to your trade dispatch ({lead['phone']})
+• Instant Project Quote Estimator (filters out tire-kickers and sends real homeowner project requests to {lead['email']})
+• Verified Accreditations ({lead['badges'][0]} & £5M Public Liability Trust Seals)
 • Blazing 0.5s Turbo Load Speed on iPhone & Android
 
-Most UK web design agencies bill £1,500 to £3,000 upfront. We think that's absurd for hard-working British trades.
+Most UK web design agencies bill £1,500 to £3,000 upfront and take 6 weeks. We think that's absurd for hard-working British trades.
 
-Since the prototype is already 100% designed and built for you, you can claim the complete website, your custom company domain, and high-speed UK cloud hosting for an affordable flat £99 (or £19/mo with zero contracts). One single customer callout pays for the entire site immediately.
+Since this prototype is already 100% designed and built for you, you can claim the complete website, your custom company domain (.co.uk), and high-speed UK cloud hosting for an affordable flat £99 (or £19/mo with zero contracts). One single customer callout pays for the entire site immediately.
 
 If you'd like to claim this design and have it live on Google under your own domain this week, simply reply "I'm interested" to this email and I'll handle the rest for you.
 
-If not, no worries at all—feel free to use the preview link as inspiration. Keep up the brilliant work serving {lead['location']}!
+If not, no worries at all—feel free to use the preview link as inspiration. Keep up the brilliant work serving {lead['service_area']}!
 
 Best regards,
 Sky King
@@ -57,7 +60,7 @@ Direct Email: skykingly1@gmail.com
 """
     return subject, body
 
-def dispatch_all_direct(dry_run=False):
+def dispatch_verified_uk(dry_run=False):
     creds = load_credentials()
     if not creds:
         print("❌ Error: email_credentials.json not found!")
@@ -70,20 +73,10 @@ def dispatch_all_direct(dry_run=False):
     smtp_port = creds.get("smtp_port", 587)
 
     if not app_password and not dry_run:
-        print("\n⚠️ Google App Password Required for Direct Automated Dispatch!")
-        print(f"Account: {sender_email}")
-        print("Google requires a 16-character App Password to allow automated SMTP sending.")
-        print("Steps (takes 30 seconds):")
-        print("1. Go to: https://myaccount.google.com/apppasswords")
-        print("2. Enter app name 'Antigravity Agency' and click Create")
-        print("3. Paste the 16 characters into 'app_password' inside 'email_credentials.json'")
-        print("4. Re-run this script to automatically dispatch all 50 emails directly!\n")
+        print("❌ Error: No Google App Password configured.")
         return
 
-    with open(LEADS_FILE, "r", encoding="utf-8") as f:
-        leads = json.load(f)
-
-    print(f"🚀 Preparing direct dispatch to {len(leads)} UK Trade Businesses at £99 Flat Offer...")
+    print(f"🚀 Preparing dispatch to {len(uk_businesses)} VERIFIED UK Trade Businesses with live dedicated prototypes (£99 Flat Offer)...")
     
     server = None
     if not dry_run:
@@ -95,12 +88,15 @@ def dispatch_all_direct(dry_run=False):
     dispatch_log = []
     sent_count = 0
 
-    for i, lead in enumerate(leads, 1):
+    for i, lead in enumerate(uk_businesses, 1):
         subj, body = build_uk_email(lead)
         to_email = lead['email']
+        sample_url = f"https://skyking-client-previews.surge.sh/samples/{lead['id']}/"
         
         if dry_run:
-            print(f"[{i}/{len(leads)}] [DRY RUN] Would send to: {lead['name']} <{to_email}> | Subject: {subj}")
+            print(f"[{i}/{len(uk_businesses)}] [DRY RUN] -> {lead['name']} <{to_email}>")
+            print(f"       Prototype: {sample_url}")
+            print(f"       Subject: {subj}")
             sent_count += 1
             continue
 
@@ -112,19 +108,21 @@ def dispatch_all_direct(dry_run=False):
             msg.attach(MIMEText(body, 'plain', 'utf-8'))
 
             server.sendmail(sender_email, to_email, msg.as_string())
-            print(f"[{i}/{len(leads)}] ✅ Delivered directly to: {lead['name']} ({to_email})")
+            print(f"[{i}/{len(uk_businesses)}] ✅ Delivered directly to: {lead['name']} ({to_email})")
+            print(f"       Dedicated Site: {sample_url}")
             
             dispatch_log.append({
                 "id": lead['id'],
                 "name": lead['name'],
                 "email": to_email,
+                "prototype_url": sample_url,
                 "status": "DELIVERED",
                 "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ")
             })
             sent_count += 1
-            time.sleep(1.5) # respectful delay to keep deliverability spotless
+            time.sleep(2.0)
         except Exception as e:
-            print(f"[{i}/{len(leads)}] ❌ Failed to send to {to_email}: {e}")
+            print(f"[{i}/{len(uk_businesses)}] ❌ Failed to send to {to_email}: {e}")
             dispatch_log.append({
                 "id": lead['id'],
                 "name": lead['name'],
@@ -140,9 +138,8 @@ def dispatch_all_direct(dry_run=False):
     with open(LOG_FILE, "w", encoding="utf-8") as f:
         json.dump(dispatch_log, f, indent=2)
 
-    print(f"\n🎉 Direct Outreach Complete! {sent_count}/{len(leads)} emails dispatched.")
+    print(f"\n🎉 Verified UK Outreach Complete! {sent_count}/{len(uk_businesses)} bespoke prototypes pitched.")
 
 if __name__ == "__main__":
-    import sys
     dry = "--dry-run" in sys.argv
-    dispatch_all_direct(dry_run=dry)
+    dispatch_verified_uk(dry_run=dry)

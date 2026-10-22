@@ -144,7 +144,7 @@
       color: white;
       line-height: 1.15;
       letter-spacing: -1.5px;
-      max-width: 950px;
+      max-width: 980px;
       margin: 0 auto 20px;
     }
     .hero h1 span {
@@ -155,7 +155,7 @@
     .hero p {
       color: var(--text-muted);
       font-size: 1.2rem;
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto 40px;
       line-height: 1.6;
     }
@@ -165,7 +165,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      max-width: 1050px;
+      max-width: 1100px;
       margin: 0 auto 60px;
     }
     .stat-box {
@@ -190,7 +190,33 @@
       letter-spacing: 0.5px;
     }
 
-    /* Filter Bar */
+    /* Country & Industry Filter Bars */
+    .country-selector {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .country-btn {
+      background: var(--surface-card);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .country-btn.active {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      border-color: #6366f1;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+
     .filter-wrapper {
       display: flex;
       justify-content: center;
@@ -202,9 +228,9 @@
       background: var(--surface);
       border: 1px solid var(--card-border);
       color: var(--text-muted);
-      padding: 10px 20px;
+      padding: 8px 18px;
       border-radius: 100px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -214,10 +240,9 @@
       border-color: rgba(255, 255, 255, 0.25);
     }
     .filter-btn.active {
-      background: var(--primary);
-      border-color: var(--primary);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
       color: white;
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
     }
 
     /* Showcase Grid */
@@ -245,11 +270,32 @@
     .card-visual {
       height: 180px;
       position: relative;
-      padding: 20px;
+      padding: 16px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+    .country-tag {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+    }
+    .uk-tag {
+      background: rgba(14, 165, 233, 0.2);
+      border: 1px solid #0ea5e9;
+      color: #7dd3fc;
+    }
+    .us-tag {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid #ef4444;
+      color: #fca5a5;
+    }
+
     .card-badge {
       align-self: flex-start;
       font-size: 0.75rem;
@@ -331,17 +377,16 @@
       font-weight: 800;
       font-size: 0.95rem;
       color: #ffffff;
-      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       transition: all 0.2s ease;
     }
     .btn-demo:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
-      filter: brightness(1.1);
+      filter: brightness(1.15);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     }
 
-    /* Agency Architecture Value Banner */
+    /* Value Section */
     .value-section {
       background: linear-gradient(135deg, #111827 0%, #0f172a 100%);
       border: 1px solid var(--card-border);
@@ -441,7 +486,7 @@
       <div class="nav-links">
         <div class="nav-status">
           <span class="status-dot"></span>
-          <span>13 Live Prototypes Active</span>
+          <span>23 Live Prototypes Active</span>
         </div>
       </div>
     </div>
@@ -450,40 +495,46 @@
   <!-- Hero Section -->
   <section class="hero container">
     <div class="hero-badge">
-      ✦ High-Performance Architecture for American Trade Leaders
+      ✦ High-Performance Architecture for American & British Trade Leaders
     </div>
     <h1>Engineered to Convert Homeowners Into <span>High-Ticket Contracts.</span></h1>
-    <p>Explore our curated gallery of 13 fully functional, bespoke digital prototypes built with real-time project estimators, instant mobile dispatch routing, and sub-second speed.</p>
+    <p>Explore our curated gallery of 23 bespoke digital prototypes across the UK and US, built with real-time project estimators, instant mobile dispatch routing, and sub-second speed.</p>
 
     <!-- Stats Bar -->
     <div class="stats-bar">
       <div class="stat-box">
-        <strong>13</strong>
-        <span>Bespoke Live Prototypes</span>
+        <strong>23</strong>
+        <span>Live Trade Prototypes</span>
       </div>
       <div class="stat-box">
-        <strong style="color: #38bdf8;">0.48s</strong>
-        <span>Average Mobile Load Time</span>
+        <strong style="color: #38bdf8;">10</strong>
+        <span>UK Dedicated Sites</span>
       </div>
       <div class="stat-box">
-        <strong style="color: #10b981;">100%</strong>
-        <span>Turnkey Code Delivery</span>
+        <strong style="color: #10b981;">0.48s</strong>
+        <span>Average Mobile Speed</span>
       </div>
       <div class="stat-box">
         <strong style="color: #e2e8f0;">£99 / $99</strong>
-        <span>Flat Contractor Package</span>
+        <span>Flat Turnkey Package</span>
       </div>
+    </div>
+
+    <!-- Country Tabs -->
+    <div class="country-selector">
+      <button class="country-btn active" onclick="filterCountry('all', this)">All Prototypes (23)</button>
+      <button class="country-btn" onclick="filterCountry('uk', this)">🇬🇧 UK Businesses (10)</button>
+      <button class="country-btn" onclick="filterCountry('us', this)">🇺🇸 US Businesses (13)</button>
     </div>
 
     <!-- Filter Buttons -->
     <div class="filter-wrapper">
-      <button class="filter-btn active" onclick="filterCards('all', this)">All Trades (13)</button>
-      <button class="filter-btn" onclick="filterCards('roofing', this)">Roofing (3)</button>
-      <button class="filter-btn" onclick="filterCards('electrical', this)">Electrical (4)</button>
-      <button class="filter-btn" onclick="filterCards('plumbing', this)">Plumbing (2)</button>
-      <button class="filter-btn" onclick="filterCards('landscaping', this)">Landscaping (1)</button>
-      <button class="filter-btn" onclick="filterCards('hvac', this)">HVAC (1)</button>
-      <button class="filter-btn" onclick="filterCards('painting', this)">Painting (2)</button>
+      <button class="filter-btn active" onclick="filterCategory('all', this)">All Trades</button>
+      <button class="filter-btn" onclick="filterCategory('plumbing', this)">Plumbing & Heating</button>
+      <button class="filter-btn" onclick="filterCategory('roofing', this)">Roofing</button>
+      <button class="filter-btn" onclick="filterCategory('electrical', this)">Electrical</button>
+      <button class="filter-btn" onclick="filterCategory('landscaping', this)">Landscaping & Paving</button>
+      <button class="filter-btn" onclick="filterCategory('painting', this)">Painting & Decorating</button>
     </div>
   </section>
 
@@ -491,8 +542,349 @@
   <main class="container">
     <div class="showcase-grid" id="prototypeGrid">
       
-        <div class="prototype-card" data-category="roofing">
+        <div class="prototype-card" data-category="plumbing" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(56, 189, 248, 0.12); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.45);">
+              <span>PLUMBING & HEATING</span>
+            </div>
+            <div class="client-mark" style="background: #1e293b; border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8;">
+              SP
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Send & Woking, Surrey • Postcode GU23
+            </div>
+            <h3 class="card-title">Send Plumbing & Heating Ltd</h3>
+            <p class="card-trade">Gas Safe Boiler Breakdowns & Unvented Hot Water Systems</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ Gas Safe Registered #582104</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-send-plumbing-heating/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="plumbing" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.45);">
+              <span>PLUMBING & HEATING</span>
+            </div>
+            <div class="client-mark" style="background: #1f2937; border: 1px solid rgba(14, 165, 233, 0.45); color: #0ea5e9;">
+              SH
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Redhill & Reigate, Surrey • Postcode RH1
+            </div>
+            <h3 class="card-title">Surrey Heating & Plumbing Ltd</h3>
+            <p class="card-trade">Worcester Bosch Combi Swaps & Precision Power Flushing</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ Gas Safe Register Approved</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-surrey-heating-plumbing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="roofing" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(241, 245, 249, 0.1); color: #f1f5f9; border: 1px solid rgba(226, 232, 240, 0.4);">
+              <span>ROOFING</span>
+            </div>
+            <div class="client-mark" style="background: #1a1a24; border: 1px solid rgba(226, 232, 240, 0.4); color: #f1f5f9;">
+              CK
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Canterbury & Whitstable, Kent • Postcode CT1
+            </div>
+            <h3 class="card-title">CK Roofing Contractors Ltd</h3>
+            <p class="card-trade">Kentish Slate Reroofing, Lead Flashing & GRP Flat Roofs</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ NFRC Quality Standard</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-ck-roofing-contractors/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="roofing" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.45);">
+              <span>ROOFING</span>
+            </div>
+            <div class="client-mark" style="background: #241f16; border: 1px solid rgba(245, 158, 11, 0.45); color: #f59e0b;">
+              AP
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Medway & Rochester, Kent • Postcode ME1
+            </div>
+            <h3 class="card-title">Acme Point Roofing</h3>
+            <p class="card-trade">Emergency Storm Tile Repair, Chimney Repointing & Dry Ridge</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ Medway Council Vetted</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-acme-point-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="electrical" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(168, 85, 247, 0.12); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.48);">
+              <span>ELECTRICAL</span>
+            </div>
+            <div class="client-mark" style="background: #1a1a36; border: 1px solid rgba(168, 85, 247, 0.48); color: #a855f7;">
+              SC
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Sale & Altrincham, Greater Manchester • Postcode M33
+            </div>
+            <h3 class="card-title">Simon Christopher Electrical Ltd</h3>
+            <p class="card-trade">18th Edition Consumer Units, Domestic Rewiring & EV Chargers</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ NICEIC Approved Contractor</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-simon-christopher-electrical/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="electrical" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(20, 184, 166, 0.12); color: #5eead4; border: 1px solid rgba(20, 184, 166, 0.45);">
+              <span>ELECTRICAL</span>
+            </div>
+            <div class="client-mark" style="background: #182333; border: 1px solid rgba(20, 184, 166, 0.45); color: #14b8a6;">
+              ME
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Stockport & South Manchester • Postcode SK4
+            </div>
+            <h3 class="card-title">Manchester Electrical Services</h3>
+            <p class="card-trade">EICR Landlord Certificates, LED Lighting & Commercial Power</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ NICEIC Approved Contractor</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-manchester-electrical-services/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="landscaping" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1558904541-efa8c4a08931?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(239, 68, 68, 0.12); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.45);">
+              <span>DRIVEWAYS & PAVING</span>
+            </div>
+            <div class="client-mark" style="background: #261a1a; border: 1px solid rgba(239, 68, 68, 0.45); color: #ef4444;">
+              ED
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Birmingham & Solihull • Postcode B13
+            </div>
+            <h3 class="card-title">Elgant Driveways & Paving</h3>
+            <p class="card-trade">Permeable Resin-Bound Driveways & Imprinted Concrete</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ BBA Certified UV Resin</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-elgant-driveways/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="landscaping" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1557429287-b2e26467fc2b?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(34, 197, 94, 0.12); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.45);">
+              <span>LANDSCAPING</span>
+            </div>
+            <div class="client-mark" style="background: #18261c; border: 1px solid rgba(34, 197, 94, 0.45); color: #22c55e;">
+              AL
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Birmingham & Sutton Coldfield • Postcode B73
+            </div>
+            <h3 class="card-title">AshLane Landscaping Services</h3>
+            <p class="card-trade">Porcelain Patios, Retaining Walls & Architectural Gardens</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ BALI Registered Affiliate</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-ashlane-landscaping/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="painting" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(236, 72, 153, 0.12); color: #fbcfe8; border: 1px solid rgba(236, 72, 153, 0.45);">
+              <span>PAINTING & DECORATING</span>
+            </div>
+            <div class="client-mark" style="background: #241926; border: 1px solid rgba(236, 72, 153, 0.45); color: #ec4899;">
+              YP
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Putney & South West London • Postcode SW6
+            </div>
+            <h3 class="card-title">Yousef Painting & Decorating Ltd</h3>
+            <p class="card-trade">Luxury Farrow & Ball Application, Sash Window & Heritage Spraying</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ London Guild of Master Painters</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-yousef-painting-decorating/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #f472b6 0%, #db2777 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="landscaping" data-country="uk">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+            <div class="country-tag uk-tag">🇬🇧 UK PROTOTYPE</div>
+            <div class="card-badge" style="background: rgba(16, 185, 129, 0.12); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.45);">
+              <span>LANDSCAPING</span>
+            </div>
+            <div class="client-mark" style="background: #18261e; border: 1px solid rgba(16, 185, 129, 0.45); color: #10b981;">
+              AS
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Solihull & South Birmingham • Postcode B90
+            </div>
+            <h3 class="card-title">Arcadia Landscape Services</h3>
+            <p class="card-trade">Indian Sandstone Paving, Timber Fencing & Turf Management</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
+              <span class="pill-feat">🛡️ Solihull Trade Guild</span>
+              <span class="pill-feat">📞 1-Click UK Call Routing</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/uk-arcadia-landscape-services/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #34d399 0%, #059669 100%);">
+                Explore Live UK Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="roofing" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(226, 232, 240, 0.08); color: #e2e8f0; border: 1px solid rgba(226, 232, 240, 0.32);">
               <span>ROOFING CONTRACTOR</span>
             </div>
@@ -517,15 +909,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/larry-dickerson-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/larry-dickerson-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="plumbing">
+        <div class="prototype-card" data-category="plumbing" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35);">
               <span>PLUMBING & DRAIN SERVICES</span>
             </div>
@@ -550,15 +943,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/blue-haven-plumbing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/blue-haven-plumbing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="landscaping">
+        <div class="prototype-card" data-category="landscaping" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1558904541-efa8c4a08931?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(74, 222, 128, 0.1); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.35);">
               <span>LANDSCAPING & HARDSCAPING</span>
             </div>
@@ -583,15 +977,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/gurda-landscaping/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #4ade80 0%, #16a34a 50%, #15803d 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/gurda-landscaping/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #4ade80 0%, #16a34a 50%, #15803d 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="electrical">
+        <div class="prototype-card" data-category="electrical" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(239, 68, 68, 0.12); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4);">
               <span>ELECTRICAL SERVICES</span>
             </div>
@@ -616,15 +1011,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/red-cap-electrical/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 50%, #991b1b 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/red-cap-electrical/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 50%, #991b1b 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="roofing">
+        <div class="prototype-card" data-category="roofing" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(52, 211, 153, 0.1); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.35);">
               <span>ROOFING & METAL ROOFS</span>
             </div>
@@ -649,15 +1045,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/four-families-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #34d399 0%, #059669 50%, #047857 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/four-families-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #34d399 0%, #059669 50%, #047857 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="plumbing">
+        <div class="prototype-card" data-category="plumbing" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(14, 165, 233, 0.1); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.38);">
               <span>PLUMBING & PIPE REPAIR</span>
             </div>
@@ -682,15 +1079,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/aim-plumbing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/aim-plumbing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="electrical">
+        <div class="prototype-card" data-category="electrical" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(139, 92, 246, 0.12); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.4);">
               <span>LICENSED ELECTRICAL CONTRACTOR</span>
             </div>
@@ -715,15 +1113,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/ave-electric/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 50%, #6d28d9 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/ave-electric/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 50%, #6d28d9 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="roofing">
+        <div class="prototype-card" data-category="roofing" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(251, 146, 60, 0.1); color: #fed7aa; border: 1px solid rgba(251, 146, 60, 0.38);">
               <span>ROOFING & DESERT COATINGS</span>
             </div>
@@ -748,15 +1147,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/elite-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #fb923c 0%, #ea580c 50%, #c2410c 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/elite-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #fb923c 0%, #ea580c 50%, #c2410c 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="electrical">
+        <div class="prototype-card" data-category="electrical" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(20, 184, 166, 0.1); color: #5eead4; border: 1px solid rgba(20, 184, 166, 0.38);">
               <span>ELECTRICAL INSPECTIONS & REPAIRS</span>
             </div>
@@ -781,15 +1181,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/doctor-electrical/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #0f766e 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/doctor-electrical/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #0f766e 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="electrical">
+        <div class="prototype-card" data-category="electrical" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(234, 179, 8, 0.1); color: #fef08a; border: 1px solid rgba(234, 179, 8, 0.38);">
               <span>RESIDENTIAL & COMMERCIAL ELECTRIC</span>
             </div>
@@ -814,15 +1215,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/nuco-electric/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #eab308 0%, #ca8a04 50%, #a16207 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/nuco-electric/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #eab308 0%, #ca8a04 50%, #a16207 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="painting">
+        <div class="prototype-card" data-category="painting" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(244, 63, 94, 0.1); color: #fecdd3; border: 1px solid rgba(244, 63, 94, 0.38);">
               <span>PAINTING & DESIGN</span>
             </div>
@@ -847,15 +1249,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/apm-painting/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #fb7185 0%, #e11d48 50%, #be123c 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/apm-painting/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #fb7185 0%, #e11d48 50%, #be123c 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="hvac">
+        <div class="prototype-card" data-category="hvac" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(14, 165, 233, 0.1); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.38);">
               <span>HEATING, AC & HEAT PUMPS</span>
             </div>
@@ -880,15 +1283,16 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/wake-forest-hvac/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/wake-forest-hvac/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
         </div>
         
-        <div class="prototype-card" data-category="painting">
+        <div class="prototype-card" data-category="painting" data-country="us">
           <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="country-tag us-tag">🇺🇸 US PROTOTYPE</div>
             <div class="card-badge" style="background: rgba(249, 115, 22, 0.1); color: #fed7aa; border: 1px solid rgba(249, 115, 22, 0.38);">
               <span>PAINTING & CONSTRUCTION</span>
             </div>
@@ -913,8 +1317,8 @@
             </div>
 
             <div class="card-action">
-              <a href="./samples/big-ts-painting/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
-                Explore Live Interactive Prototype ↗
+              <a href="./samples/big-ts-painting/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%);">
+                Explore Live US Prototype ↗
               </a>
             </div>
           </div>
@@ -927,7 +1331,7 @@
   <section class="container">
     <div class="value-section">
       <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; color: white; text-align: center;">The Antigravity Engineering Standard</h3>
-      <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 10px auto 0;">Why America's most established roofers, electricians, and plumbers upgrade to our custom digital framework.</p>
+      <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 10px auto 0;">Why established contractors across the UK & US upgrade to our bespoke digital framework.</p>
       
       <div class="value-grid">
         <div class="value-card">
@@ -940,7 +1344,7 @@
         </div>
         <div class="value-card">
           <h4>🛡️ High-Trust Local Architecture</h4>
-          <p>Deep integration of your local Chamber of Commerce seals, master license certifications, and Google review counters to justify premium pricing.</p>
+          <p>Deep integration of Gas Safe, NICEIC, NFRC, Chamber of Commerce seals, and £5M liability proof to justify premium pricing.</p>
         </div>
       </div>
     </div>
@@ -950,7 +1354,7 @@
   <section class="container">
     <div class="cta-banner">
       <h2>Ready to Claim or Customize Your Website?</h2>
-      <p>Each design can be connected to your official company domain (.com) with full cloud hosting, SSL encryption, and direct lead routing in under 24 hours.</p>
+      <p>Each design can be connected to your official company domain (.co.uk or .com) with full cloud hosting, SSL encryption, and direct lead routing in under 24 hours.</p>
       <div class="cta-actions">
         <a href="mailto:skykingly1@gmail.com?subject=Website%20Inquiry%20-%20Antigravity%20Digital%20Agency%20(%C2%A399)" class="btn-claim">
           Claim Your Prototype (£99 / $99 Flat)
@@ -969,13 +1373,33 @@
   </footer>
 
   <script>
-    function filterCards(category, btn) {
+    let activeCountry = 'all';
+    let activeCategory = 'all';
+
+    function filterCountry(country, btn) {
+      document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCountry = country;
+      applyFilters();
+    }
+
+    function filterCategory(category, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      activeCategory = category;
+      applyFilters();
+    }
 
+    function applyFilters() {
       const cards = document.querySelectorAll('.prototype-card');
       cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
+        const cardCountry = card.getAttribute('data-country');
+        const cardCategory = card.getAttribute('data-category');
+
+        const matchCountry = (activeCountry === 'all' || cardCountry === activeCountry);
+        const matchCategory = (activeCategory === 'all' || cardCategory === activeCategory);
+
+        if (matchCountry && matchCategory) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
