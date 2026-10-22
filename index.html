@@ -378,11 +378,11 @@
     <!-- 1-Click Direct Delivery Banner -->
     <div class="dispatch-banner">
       <div class="dispatch-info">
-        <h3>⚡ 1-Click Direct Delivery Connected</h3>
-        <p>Clicking <strong>"⚡ 1-Click Send (Gmail)"</strong> instantly opens your Gmail with the recipient, subject, and personalized pitch pre-loaded with their live website preview link. No copying, no pasting, no manual switching required. Click Send and move to the next lead.</p>
+        <h3>⚡ Direct Dispatch Connected: <span style="color: #6ee7b7;">skykingly1@gmail.com</span></h3>
+        <p>Clicking <strong>"⚡ 1-Click Send (Gmail)"</strong> instantly opens Gmail routed directly under <strong>skykingly1@gmail.com</strong> with the recipient, subject, and personalized pitch pre-loaded with their live website preview link. No copying, no pasting, no manual switching required.</p>
       </div>
       <div>
-        <span class="dispatch-badge">● Direct Dispatch Ready</span>
+        <span class="dispatch-badge">● Sender: skykingly1@gmail.com</span>
       </div>
     </div>
 
@@ -844,9 +844,14 @@ Web design agencies typically bill $3,000–$5,000 for custom Framer/Webflow sit
 If you'd like to claim this design and have it live on Google under your own domain, simply reply to this email! If not, no worries at all—keep up the great work serving ${l.loc}.
 
 Best regards,
-Sky King Digital
-Direct: [Your Phone / WhatsApp]`;
+Sky King
+Founder, Antigravity Digital Agency
+Email: skykingly1@gmail.com`;
       return { subject, body };
+    }
+
+    function getGmailComposeUrl(email, subject, body) {
+      return `https://mail.google.com/mail/u/skykingly1@gmail.com/?view=cm&fs=1&authuser=skykingly1@gmail.com&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 
     function renderTable() {
@@ -859,7 +864,7 @@ Direct: [Your Phone / WhatsApp]`;
         const isSent = Boolean(sentState[l.id]);
         if (isSent) sentCount++;
         const { subject, body } = buildEmail(l);
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(l.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const gmailUrl = getGmailComposeUrl(l.email, subject, body);
         const mailtoUrl = `mailto:${l.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
         const tr = document.createElement('tr');
@@ -917,20 +922,20 @@ Direct: [Your Phone / WhatsApp]`;
         const res = await resp.json();
         if (res.success) {
           markLeadSent(id);
-          alert(`✅ Delivered directly to ${email}!`);
+          alert(`✅ Delivered directly from skykingly1@gmail.com to ${email}!`);
         } else {
-          alert(`⚠️ Backend Notice: ${res.error || 'Server not running'}
+          alert(`⚠️ Backend Notice: ${res.error || 'Server not configured'}
 
-Opening 1-Click Gmail compose directly...`);
-          const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+Opening 1-Click Gmail compose (skykingly1@gmail.com)...`);
+          const gmailUrl = getGmailComposeUrl(email, subject, body);
           window.open(gmailUrl, '_blank');
           markLeadSent(id);
         }
       } catch (err) {
-        alert(`ℹ️ Outreach Server not running locally on port 5050.
+        alert(`ℹ️ Outreach Server not running locally.
 
-Opening 1-Click Gmail directly...`);
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+Opening 1-Click Gmail directly under skykingly1@gmail.com...`);
+        const gmailUrl = getGmailComposeUrl(email, subject, body);
         window.open(gmailUrl, '_blank');
         markLeadSent(id);
       }
@@ -944,7 +949,7 @@ Opening 1-Click Gmail directly...`);
       document.getElementById('modalBizTitle').innerText = `Personalized Pitch: ${l.name}`;
       document.getElementById('modalEmailText').value = body;
 
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(l.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const gmailUrl = getGmailComposeUrl(l.email, subject, body);
       const mailtoUrl = `mailto:${l.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       document.getElementById('modalGmailBtn').href = gmailUrl;
