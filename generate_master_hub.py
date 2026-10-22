@@ -63,7 +63,7 @@ leads_data = [
         "niche": "Mountain & Metal Roofing",
         "loc": "Highlands, NC",
         "source": "Highlands Chamber",
-        "email": "letmeroofme@gmail.com",
+        "email": "info@4froofing.com",
         "phone": "(828) 634-1664",
         "sample": "samples/four-families-roofing/",
         "color": "#34d399",

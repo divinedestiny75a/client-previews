@@ -276,7 +276,7 @@ businesses = [
         "service_area": "Highlands, Cashiers & Western NC Mountains",
         "source": "Highlands Chamber of Commerce",
         "phone": "(828) 634-1664",
-        "email": "letmeroofme@gmail.com",
+        "email": "info@4froofing.com",
         "theme": {
             "bg": "#080c0a",
             "surface": "#0f1713",

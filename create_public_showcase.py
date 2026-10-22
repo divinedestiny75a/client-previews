@@ -51,10 +51,10 @@ def build_showcase_html():
             <p class="card-trade">{b['trade']}</p>
             
             <div class="feature-pills">
-              <span class="pill-feat">⚡ £ GBP Investment Estimator</span>
-              <span class="pill-feat">🛡️ {b['badges'][0]}</span>
-              <span class="pill-feat">📞 1-Click UK Call Routing</span>
-              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+              <span class="pill-feat"><svg class="pill-svg" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/></svg> £ GBP Investment Estimator</span>
+              <span class="pill-feat"><svg class="pill-svg" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> {b['badges'][0]}</span>
+              <span class="pill-feat"><svg class="pill-svg" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 1-Click UK Call Routing</span>
+              <span class="pill-feat"><svg class="pill-svg" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0.5s Turbo Load</span>
             </div>
 
             <div class="card-action">
@@ -108,10 +108,10 @@ def build_showcase_html():
             <p class="card-trade">{b['trade']}</p>
             
             <div class="feature-pills">
-              <span class="pill-feat">⚡ {tool_badge}</span>
-              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
-              <span class="pill-feat">🛡️ Verified Trust Badges</span>
-              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+              <span class="pill-feat"><svg class="pill-svg" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/></svg> {tool_badge}</span>
+              <span class="pill-feat"><svg class="pill-svg" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 1-Click Mobile Call Routing</span>
+              <span class="pill-feat"><svg class="pill-svg" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> Verified Trust Badges</span>
+              <span class="pill-feat"><svg class="pill-svg" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0.5s Turbo Load</span>
             </div>
 
             <div class="card-action">
@@ -487,6 +487,15 @@ def build_showcase_html():
       padding: 4px 10px;
       border-radius: 6px;
       font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }}
+    .pill-svg {{
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+      color: var(--primary-light);
     }}
 
     .card-action {{

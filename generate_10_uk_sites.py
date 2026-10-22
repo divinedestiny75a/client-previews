@@ -388,12 +388,23 @@ uk_businesses = [
     }
 ]
 
+# MODERN VECTOR SVG ICONS
+SVG_SHIELD = '<svg class="svg-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>'
+SVG_PHONE = '<svg class="svg-icon" viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.2" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'
+SVG_MAIL = '<svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>'
+SVG_MAP_PIN = '<svg class="svg-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>'
+SVG_STAR = '<svg class="svg-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
+SVG_CALC = '<svg class="svg-icon" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>'
+SVG_AWARD = '<svg class="svg-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>'
+SVG_LOCK = '<svg class="svg-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
+SVG_SCALE = '<svg class="svg-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>'
+
 def generate_uk_site(b):
     out_dir = os.path.join(SAMPLES_DIR, b['id'])
     os.makedirs(out_dir, exist_ok=True)
     out_file = os.path.join(out_dir, "index.html")
 
-    badges_html = "".join([f'<span class="uk-badge">🛡️ {badge}</span>' for badge in b['badges']])
+    badges_html = "".join([f'<span class="uk-badge">{SVG_SHIELD} {badge}</span>' for badge in b['badges']])
 
     html = f"""<!DOCTYPE html>
 <html lang="en-GB">
@@ -431,13 +442,19 @@ def generate_uk_site(b):
     }}
     .container {{ max-width: 1240px; margin: 0 auto; padding: 0 24px; }}
 
+    .svg-icon {{
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }}
+
     /* Top UK Emergency Bar */
     .emergency-bar {{
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.92);
       border-bottom: 1px solid var(--border);
       padding: 10px 0;
       font-size: 0.85rem;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }}
     .emergency-inner {{
       display: flex;
@@ -448,27 +465,39 @@ def generate_uk_site(b):
     }}
     .emergency-badges {{
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }}
     .uk-badge {{
       background: var(--badge-bg);
       color: var(--badge-text);
       border: 1px solid var(--border-accent);
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 6px;
       font-weight: 700;
-      font-size: 0.76rem;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }}
     .emergency-phone {{
       color: white;
       text-decoration: none;
       font-weight: 800;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-accent);
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
     }}
-    .emergency-phone:hover {{ color: var(--primary); }}
+    .emergency-phone:hover {{
+      color: var(--primary);
+      border-color: var(--primary);
+    }}
 
     /* Main Navigation */
     header {{
@@ -476,7 +505,7 @@ def generate_uk_site(b):
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background: rgba(10, 15, 25, 0.85);
+      background: rgba(10, 15, 25, 0.88);
       backdrop-filter: blur(16px);
       z-index: 100;
     }}
@@ -488,12 +517,12 @@ def generate_uk_site(b):
     .brand {{
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
     }}
     .brand-mark {{
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       background: var(--surface-card);
       border: 1px solid var(--border-accent);
       color: var(--primary);
@@ -502,8 +531,9 @@ def generate_uk_site(b):
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
     }}
     .brand-text h1 {{
       font-family: 'Space Grotesk', sans-serif;
@@ -526,6 +556,9 @@ def generate_uk_site(b):
       font-size: 0.9rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }}
     .nav-cta:hover {{ transform: translateY(-2px); }}
 
@@ -589,9 +622,12 @@ def generate_uk_site(b):
       font-size: 1rem;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: all 0.2s;
     }}
+    .btn-primary:hover {{ transform: translateY(-2px); filter: brightness(1.1); }}
+
     .btn-secondary {{
       background: var(--surface-card);
       border: 1px solid var(--border);
@@ -603,8 +639,10 @@ def generate_uk_site(b):
       font-size: 1rem;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      transition: all 0.2s;
     }}
+    .btn-secondary:hover {{ border-color: rgba(255,255,255,0.3); }}
 
     .hero-card {{
       background: var(--surface);
@@ -613,6 +651,7 @@ def generate_uk_site(b):
       padding: 24px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
     }}
     .hero-image-wrap {{
       border-radius: 14px;
@@ -633,6 +672,21 @@ def generate_uk_site(b):
       font-size: 0.85rem;
       color: var(--text-muted);
     }}
+    .pulse-indicator {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #34d399;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }}
+    .pulse-dot {{
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
+    }}
 
     /* Interactive Calculator Section */
     .calculator-section {{
@@ -652,6 +706,10 @@ def generate_uk_site(b):
       font-size: 2rem;
       color: white;
       margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }}
     .calc-header p {{
       color: var(--text-muted);
@@ -706,7 +764,7 @@ def generate_uk_site(b):
       color: white;
     }}
 
-    /* Trust & Guarantee Grid */
+    /* Modern Trust Icon Cards */
     .trust-grid {{
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -716,22 +774,37 @@ def generate_uk_site(b):
     .trust-card {{
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 18px;
+      padding: 28px 24px;
+      transition: transform 0.2s, border-color 0.2s;
+    }}
+    .trust-card:hover {{
+      transform: translateY(-4px);
+      border-color: var(--border-accent);
+    }}
+    .icon-box {{
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-accent);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
     }}
     .trust-card h4 {{
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1.2rem;
       color: white;
       margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }}
     .trust-card p {{
       color: var(--text-muted);
       font-size: 0.9rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }}
 
     /* Footer */
@@ -755,7 +828,7 @@ def generate_uk_site(b):
       </div>
       <div>
         <a href="tel:{b['phone'].replace(' ', '')}" class="emergency-phone">
-          📞 Direct Dispatch: {b['phone']}
+          {SVG_PHONE} <span>Direct Dispatch: {b['phone']}</span>
         </a>
       </div>
     </div>
@@ -772,7 +845,7 @@ def generate_uk_site(b):
         </div>
       </a>
       <a href="tel:{b['phone'].replace(' ', '')}" class="nav-cta">
-        Book Service / Quote
+        {SVG_PHONE} <span>Book Service / Quote</span>
       </a>
     </div>
   </header>
@@ -782,16 +855,16 @@ def generate_uk_site(b):
     <div class="hero-grid">
       <div>
         <div class="hero-badge">
-          ✦ {b['badges'][0]} • {b['location']}
+          {SVG_STAR} <span>{b['badges'][0]} • {b['location']}</span>
         </div>
         <h2>{b['hero_title']}</h2>
         <p>{b['hero_sub']}</p>
         <div class="hero-buttons">
           <a href="tel:{b['phone'].replace(' ', '')}" class="btn-primary">
-            📞 Call {b['phone']}
+            {SVG_PHONE} <span>Call {b['phone']}</span>
           </a>
           <a href="mailto:{b['email']}?subject=Quote%20Request%20-%20{b['name']}" class="btn-secondary">
-            ✉️ Email Dispatch ({b['email']})
+            {SVG_MAIL} <span>Email Dispatch ({b['email']})</span>
           </a>
         </div>
       </div>
@@ -801,8 +874,8 @@ def generate_uk_site(b):
           <img src="{b['theme']['hero_img']}" alt="{b['trade']} in {b['location']}">
         </div>
         <div class="card-meta">
-          <span>📍 Operating Across {b['postcode']} & Region</span>
-          <span style="color: #10b981; font-weight: 700;">● Active Dispatch</span>
+          <span>{SVG_MAP_PIN} Operating Across {b['postcode']} & Region</span>
+          <span class="pulse-indicator"><span class="pulse-dot"></span> Active Dispatch</span>
         </div>
       </div>
     </div>
@@ -812,7 +885,7 @@ def generate_uk_site(b):
   <section class="container">
     <div class="calculator-section">
       <div class="calc-header">
-        <h3>Instant Project Investment Estimator</h3>
+        <h3>{SVG_CALC} Instant Project Investment Estimator</h3>
         <p>Adjust the slider to your property dimensions to calculate estimated investment tiers for {b['location']}.</p>
       </div>
 
@@ -829,8 +902,8 @@ def generate_uk_site(b):
             <div class="price-display" id="priceDisplay">Calculating...</div>
           </div>
           <div>
-            <a href="tel:{b['phone'].replace(' ', '')}" class="btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">
-              Confirm Written Quote
+            <a href="tel:{b['phone'].replace(' ', '')}" class="btn-primary" style="padding: 12px 24px; font-size: 0.95rem;">
+              {SVG_PHONE} Confirm Written Quote
             </a>
           </div>
         </div>
@@ -838,19 +911,28 @@ def generate_uk_site(b):
     </div>
   </section>
 
-  <!-- Trust Badges & Guarantee Grid -->
+  <!-- Trust Badges & Guarantee Grid with Modern SVG Icon Boxes -->
   <section class="container">
     <div class="trust-grid">
       <div class="trust-card">
-        <h4>🛡️ Fully Accredited & Vetted</h4>
+        <div class="icon-box">
+          {SVG_AWARD}
+        </div>
+        <h4>Fully Accredited & Vetted</h4>
         <p>{b['badges'][0]} and {b['badges'][1]}. Fully vetted engineers adhering strictly to British building standards.</p>
       </div>
       <div class="trust-card">
-        <h4>⚡ Upfront British Pricing</h4>
+        <div class="icon-box">
+          {SVG_SCALE}
+        </div>
+        <h4>Upfront British Pricing</h4>
         <p>No hidden fees, no mileage surcharges. Written itemized estimates provided before any tools touch your property.</p>
       </div>
       <div class="trust-card">
-        <h4>🔒 Comprehensive Guarantee</h4>
+        <div class="icon-box">
+          {SVG_LOCK}
+        </div>
+        <h4>Comprehensive Guarantee</h4>
         <p>Backed by our 10-year workmanship guarantee and full £5,000,000 public liability insurance for total peace of mind.</p>
       </div>
     </div>
@@ -881,9 +963,9 @@ def generate_uk_site(b):
 
     with open(out_file, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"Generated UK Site: {b['id']} -> {out_file}")
+    print(f"Generated UK Site with Modern SVGs: {b['id']} -> {out_file}")
 
 if __name__ == "__main__":
     for b in uk_businesses:
         generate_uk_site(b)
-    print(f"Successfully generated all {len(uk_businesses)} bespoke UK client websites!")
+    print(f"Successfully generated all {len(uk_businesses)} bespoke UK client websites with modern icons!")
