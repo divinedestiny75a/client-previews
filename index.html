@@ -3,1014 +3,985 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Client Acquisition Hub | 13 Dedicated Live Client Sites</title>
+  <title>Antigravity Digital Agency | Client Showcase & Interactive Prototypes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #090d16;
-      --card: #111827;
-      --card-border: #1f2937;
+      --bg: #07090e;
+      --surface: #0e121b;
+      --surface-card: #141a27;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(99, 102, 241, 0.4);
       --primary: #6366f1;
-      --primary-hover: #4f46e5;
+      --primary-light: #818cf8;
       --accent: #10b981;
-      --text: #f9fafb;
-      --text-muted: #9ca3af;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 40px 24px; }
-    .container { max-width: 1440px; margin: 0 auto; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-    header {
-      margin-bottom: 35px;
-      padding-bottom: 25px;
+    /* Global Header / Nav */
+    nav {
       border-bottom: 1px solid var(--card-border);
+      padding: 20px 0;
+      background: rgba(7, 9, 14, 0.8);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 20px;
+      align-items: center;
     }
-    .title-group h1 {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+    .brand-name {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.2rem;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: white;
       letter-spacing: -0.5px;
     }
-    .title-group p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      margin-top: 6px;
+    .brand-tag {
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      margin-left: 6px;
+      letter-spacing: 0.5px;
     }
-    .stats-pills {
+    .nav-links {
       display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    .pill {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      padding: 10px 18px;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .pill strong { display: block; font-size: 1.25rem; color: var(--accent); }
-    .pill span { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
-
-    /* Quick Dispatch Banner */
-    .dispatch-banner {
-      background: linear-gradient(135deg, #1e1b4b 0%, #172554 100%);
-      border: 1px solid rgba(99, 102, 241, 0.4);
-      border-radius: 16px;
-      padding: 24px 30px;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 20px;
     }
-    .dispatch-info h3 {
-      color: white;
-      font-size: 1.2rem;
+    .nav-status {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-    .dispatch-info p {
-      color: #cbd5e1;
-      font-size: 0.92rem;
-      max-width: 800px;
-    }
-    .dispatch-badge {
-      background: rgba(16, 185, 129, 0.2);
-      border: 1px solid #10b981;
-      color: #6ee7b7;
-      padding: 6px 14px;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      padding: 8px 16px;
       border-radius: 100px;
-      font-size: 0.82rem;
-      font-weight: 700;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 50px;
+      text-align: center;
+    }
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #a5b4fc;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 24px;
     }
-
-    .section-title {
+    .hero h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      margin: 40px 0 20px;
+      font-size: 3.2rem;
+      font-weight: 800;
       color: white;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      max-width: 950px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 760px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
     }
 
-    .samples-grid {
+    /* Stats Grid */
+    .stats-bar {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1050px;
+      margin: 0 auto 60px;
     }
-    .sample-card {
-      background: var(--card);
+    .stat-box {
+      background: var(--surface);
       border: 1px solid var(--card-border);
+      padding: 24px;
       border-radius: 16px;
+      text-align: center;
+    }
+    .stat-box strong {
+      display: block;
+      font-size: 2.2rem;
+      font-family: 'Space Grotesk', sans-serif;
+      color: white;
+      letter-spacing: -1px;
+    }
+    .stat-box span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Filter Bar */
+    .filter-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 45px;
+    }
+    .filter-btn {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      color: white;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Showcase Grid */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+    .prototype-card {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.25s, border-color 0.25s;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
-    .sample-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.3);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    .prototype-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(99, 102, 241, 0.15);
     }
-    .card-banner {
-      height: 120px;
+    .card-visual {
+      height: 180px;
+      position: relative;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-badge {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+    .client-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      align-self: flex-end;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
     }
-    .card-body {
-      padding: 22px;
+
+    .card-content {
+      padding: 26px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
-    .card-body h3 {
-      font-size: 1.18rem;
+    .card-location {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
       color: white;
       margin-bottom: 6px;
     }
-    .target-biz {
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .card-body p {
-      color: var(--text-muted);
-      font-size: 0.88rem;
+    .card-trade {
+      color: #94a3b8;
+      font-size: 0.9rem;
       margin-bottom: 20px;
-      flex-grow: 1;
-      line-height: 1.5;
+      line-height: 1.4;
     }
-    .action-row {
+
+    .feature-pills {
       display: flex;
-      gap: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+      flex-grow: 1;
     }
-    .btn-view {
-      flex: 1;
+    .pill-feat {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .card-action {
+      margin-top: auto;
+    }
+    .btn-demo {
+      display: block;
+      width: 100%;
       text-align: center;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 14px 20px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 0.88rem;
-      transition: opacity 0.2s;
+      font-size: 0.95rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      transition: all 0.2s ease;
     }
-    .btn-view:hover { opacity: 0.9; }
+    .btn-demo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+      filter: brightness(1.1);
+    }
 
-    /* Leads Table */
-    .table-container {
-      background: var(--card);
+    /* Agency Architecture Value Banner */
+    .value-section {
+      background: linear-gradient(135deg, #111827 0%, #0f172a 100%);
       border: 1px solid var(--card-border);
-      border-radius: 16px;
-      overflow-x: auto;
+      border-radius: 24px;
+      padding: 50px 40px;
+      margin-bottom: 80px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      font-size: 0.88rem;
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 35px;
     }
-    th {
-      background: rgba(0, 0, 0, 0.25);
-      padding: 16px 18px;
-      color: var(--text-muted);
-      font-weight: 700;
-      border-bottom: 1px solid var(--card-border);
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-    td {
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--card-border);
-      color: #e5e7eb;
-      vertical-align: middle;
-    }
-    tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
-    .status-badge {
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      white-space: nowrap;
-      display: inline-block;
-    }
-    .status-pending {
-      background: rgba(245, 158, 11, 0.15);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.3);
-    }
-    .status-delivered {
-      background: rgba(16, 185, 129, 0.2);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.4);
-    }
-
-    /* Action Buttons in Table */
-    .table-actions {
+    .value-card h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      color: white;
+      margin-bottom: 10px;
       display: flex;
-      gap: 8px;
       align-items: center;
-      flex-wrap: wrap;
-    }
-    .btn-action-gmail {
-      background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
-    .btn-action-gmail:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(234, 67, 53, 0.4);
-    }
-    .btn-action-api {
-      background: #1e293b;
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.2s;
-    }
-    .btn-action-api:hover {
-      background: #0284c7;
-      color: white;
-    }
-    .btn-action-preview {
-      background: #374151;
-      color: #e5e7eb;
-      border: 1px solid #4b5563;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-action-preview:hover {
-      background: #4b5563;
-      color: white;
-    }
-
-    /* Email Modal */
-    #emailModal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(8px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      padding: 20px;
-    }
-    .modal-content {
-      background: #111827;
-      border: 1px solid #374151;
-      border-radius: 16px;
-      max-width: 720px;
-      width: 100%;
-      padding: 30px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    }
-    .modal-content h3 {
-      color: white;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
-    .modal-textarea {
-      width: 100%;
-      height: 320px;
-      background: #090d16;
-      border: 1px solid #374151;
-      border-radius: 10px;
-      color: #e5e7eb;
-      padding: 15px;
-      font-size: 0.88rem;
-      line-height: 1.5;
-      font-family: monospace;
-      margin: 15px 0 20px;
-      resize: none;
-    }
-    .modal-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .modal-right-actions {
-      display: flex;
       gap: 10px;
     }
-    .btn-close {
-      background: #374151;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.88rem;
+    .value-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
     }
+
+    /* CTA Section */
+    .cta-banner {
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.25) 0%, transparent 70%), #0e121b;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 24px;
+      padding: 60px 30px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .cta-banner h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.4rem;
+      color: white;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .cta-banner p {
+      color: #cbd5e1;
+      font-size: 1.15rem;
+      max-width: 650px;
+      margin: 0 auto 30px;
+    }
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-claim {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+    .btn-claim:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    footer a { color: var(--text); text-decoration: none; font-weight: 600; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <div class="title-group">
-        <h1>Website Client Acquisition Hub</h1>
-        <p>13 Verified Chamber of Commerce businesses with 100% individual custom-built live websites</p>
-      </div>
-      <div class="stats-pills">
-        <div class="pill">
-          <strong>13</strong>
-          <span>Bespoke Sites</span>
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-mark">A</div>
+        <div class="brand-name">
+          ANTIGRAVITY
+          <span class="brand-tag">DIGITAL AGENCY</span>
         </div>
-        <div class="pill">
-          <strong>100%</strong>
-          <span>Live Hosted</span>
-        </div>
-        <div class="pill">
-          <strong id="sentCount">0 / 13</strong>
-          <span>Delivered</span>
-        </div>
-        <div class="pill">
-          <strong>$199 / $29mo</strong>
-          <span>Offer Hook</span>
+      </a>
+      <div class="nav-links">
+        <div class="nav-status">
+          <span class="status-dot"></span>
+          <span>13 Live Prototypes Active</span>
         </div>
       </div>
-    </header>
+    </div>
+  </nav>
 
-    <!-- 1-Click Direct Delivery Banner -->
-    <div class="dispatch-banner">
-      <div class="dispatch-info">
-        <h3>⚡ Direct Dispatch Connected: <span style="color: #6ee7b7;">skykingly1@gmail.com</span></h3>
-        <p>Clicking <strong>"⚡ 1-Click Send (Gmail)"</strong> instantly opens Gmail routed directly under <strong>skykingly1@gmail.com</strong> with the recipient, subject, and personalized pitch pre-loaded with their live website preview link. No copying, no pasting, no manual switching required.</p>
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="hero-badge">
+      ✦ High-Performance Architecture for American Trade Leaders
+    </div>
+    <h1>Engineered to Convert Homeowners Into <span>High-Ticket Contracts.</span></h1>
+    <p>Explore our curated gallery of 13 fully functional, bespoke digital prototypes built with real-time project estimators, instant mobile dispatch routing, and sub-second speed.</p>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-box">
+        <strong>13</strong>
+        <span>Bespoke Live Prototypes</span>
       </div>
-      <div>
-        <span class="dispatch-badge">● Sender: skykingly1@gmail.com</span>
+      <div class="stat-box">
+        <strong style="color: #38bdf8;">0.48s</strong>
+        <span>Average Mobile Load Time</span>
+      </div>
+      <div class="stat-box">
+        <strong style="color: #10b981;">100%</strong>
+        <span>Turnkey Code Delivery</span>
+      </div>
+      <div class="stat-box">
+        <strong style="color: #e2e8f0;">$199</strong>
+        <span>Flat Contractor Package</span>
       </div>
     </div>
 
-    <!-- 13 Distinct Websites Grid -->
-    <h2 class="section-title">✨ 13 Dedicated Live Website Samples (Bespoke to Each Business)</h2>
-    <div class="samples-grid">
+    <!-- Filter Buttons -->
+    <div class="filter-wrapper">
+      <button class="filter-btn active" onclick="filterCards('all', this)">All Trades (13)</button>
+      <button class="filter-btn" onclick="filterCards('roofing', this)">Roofing (3)</button>
+      <button class="filter-btn" onclick="filterCards('electrical', this)">Electrical (4)</button>
+      <button class="filter-btn" onclick="filterCards('plumbing', this)">Plumbing (2)</button>
+      <button class="filter-btn" onclick="filterCards('landscaping', this)">Landscaping (1)</button>
+      <button class="filter-btn" onclick="filterCards('hvac', this)">HVAC (1)</button>
+      <button class="filter-btn" onclick="filterCards('painting', this)">Painting (2)</button>
+    </div>
+  </section>
+
+  <!-- Prototype Showcase Gallery -->
+  <main class="container">
+    <div class="showcase-grid" id="prototypeGrid">
       
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #090b0e 0%, #334155 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#e2e8f0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Larry Dickerson Roofing LLC</h3>
-          <div class="target-biz" style="color: #cbd5e1;">Location: Plainview, TX • Roofing & Storm Restoration</div>
-          <p>Platinum Silver theme, Texas hail storm damage estimator & instant photo inspection scheduler</p>
-          <div class="action-row">
-            <a href="samples/larry-dickerson-roofing/" target="_blank" class="btn-view" style="background: #cbd5e1; color: #090b0e;">Open Dedicated Live Demo ↗</a>
+        <div class="prototype-card" data-category="roofing">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(226, 232, 240, 0.08); color: #e2e8f0; border: 1px solid rgba(226, 232, 240, 0.32);">
+              <span>ROOFING CONTRACTOR</span>
+            </div>
+            <div class="client-mark" style="background: #151b24; border: 1px solid rgba(226, 232, 240, 0.32); color: #e2e8f0;">
+              LD
+            </div>
           </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #080c14 0%, #0369a1 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Blue Haven Plumbing LLC</h3>
-          <div class="target-biz" style="color: #38bdf8;">Location: Tillamook, OR • Plumbing & Drain Services</div>
-          <p>Coastal azure theme, 24/7 emergency dispatch selector, tankless water heaters & sewer jetting</p>
-          <div class="action-row">
-            <a href="samples/blue-haven-plumbing/" target="_blank" class="btn-view" style="background: #38bdf8; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #070c09 0%, #15803d 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Gurda Landscaping LLC</h3>
-          <div class="target-biz" style="color: #4ade80;">Location: Pine Island, NY • Landscaping & Hardscaping</div>
-          <p>Emerald forest aesthetic, Unilock patio estimator, natural stone retaining walls & estate turf maintenance</p>
-          <div class="action-row">
-            <a href="samples/gurda-landscaping/" target="_blank" class="btn-view" style="background: #4ade80; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #0c0a09 0%, #991b1b 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Red Cap Electrical Services LLC</h3>
-          <div class="target-biz" style="color: #ef4444;">Location: Dumas, TX • Electrical Contractor</div>
-          <p>High-voltage crimson & onyx theme, 200A breaker panel upgrades, Level-2 EV charging & ranch power</p>
-          <div class="action-row">
-            <a href="samples/red-cap-electrical/" target="_blank" class="btn-view" style="background: #ef4444; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #080c0a 0%, #047857 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Four Families Roofing LLC</h3>
-          <div class="target-biz" style="color: #34d399;">Location: Highlands, NC • Mountain & Metal Roofing</div>
-          <p>Alpine forest emerald theme, standing seam metal roofing, heavy snow defense & drone video audits</p>
-          <div class="action-row">
-            <a href="samples/four-families-roofing/" target="_blank" class="btn-view" style="background: #34d399; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #080d16 0%, #0369a1 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>AIM Plumbing Services</h3>
-          <div class="target-biz" style="color: #0ea5e9;">Location: Refugio County, TX • Plumbing & Pipe Repair</div>
-          <p>Coastal bend cyan theme, acoustic under-slab leak detection, water heater replacements & cleanouts</p>
-          <div class="action-row">
-            <a href="samples/aim-plumbing/" target="_blank" class="btn-view" style="background: #0ea5e9; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #0a0a14 0%, #6d28d9 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>AVE. Electric LLC</h3>
-          <div class="target-biz" style="color: #a78bfa;">Location: Pomona, CA • Licensed Electrical Contractor</div>
-          <p>Electric violet theme, commercial LED high-bay retrofits, California Title 24 compliance & smart building automation</p>
-          <div class="action-row">
-            <a href="samples/ave-electric/" target="_blank" class="btn-view" style="background: #a78bfa; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #0c0a08 0%, #c2410c 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><path d="m4.93 4.93 14.14 14.14"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Elite Roofing</h3>
-          <div class="target-biz" style="color: #fb923c;">Location: Yucca Valley, CA • Roofing & Desert Coatings</div>
-          <p>Mojave terracotta theme, elastomeric silicone cool roof coatings that drop rooftop heat 25°F & Spanish tile relay</p>
-          <div class="action-row">
-            <a href="samples/elite-roofing/" target="_blank" class="btn-view" style="background: #fb923c; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #060c12 0%, #0f766e 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Doctor Electrical Services Inc.</h3>
-          <div class="target-biz" style="color: #14b8a6;">Location: Camano Island, WA • Electrical Inspections & Repairs</div>
-          <p>Pacific Northwest teal theme, standby generator transfer switches, salt-air corrosion resistant panels & dock wiring</p>
-          <div class="action-row">
-            <a href="samples/doctor-electrical/" target="_blank" class="btn-view" style="background: #14b8a6; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #0a0a0c 0%, #a16207 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>NuCo Electric</h3>
-          <div class="target-biz" style="color: #eab308;">Location: Oswego, IL • Residential & Commercial Electric</div>
-          <p>Fox Valley amber theme, finished basement canless lighting, clean EMT conduit runs & 240V Tesla garage stations</p>
-          <div class="action-row">
-            <a href="samples/nuco-electric/" target="_blank" class="btn-view" style="background: #eab308; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #0c0b0a 0%, #be123c 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fb7185" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>APM Painting & Design</h3>
-          <div class="target-biz" style="color: #fb7185;">Location: Bethel, CT • Painting & Design</div>
-          <p>Fairfield rose-cashmere aesthetic, factory-finish kitchen cabinet spraying, HEPA dustless sanding & exterior weatherproofing</p>
-          <div class="action-row">
-            <a href="samples/apm-painting/" target="_blank" class="btn-view" style="background: #fb7185; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #070c14 0%, #0369a1 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Wake Forest HVAC Company</h3>
-          <div class="target-biz" style="color: #38bdf8;">Location: Rolesville & Wake Forest, NC • Heating, AC & Heat Pumps</div>
-          <p>Carolina ice-blue theme, 18+ SEER2 variable inverter heat pumps, Duke Energy rebates & 24/7 no-cool emergency repair</p>
-          <div class="action-row">
-            <a href="samples/wake-forest-hvac/" target="_blank" class="btn-view" style="background: #38bdf8; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="sample-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #0c0908 0%, #c2410c 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        </div>
-        <div class="card-body">
-          <h3>Big T's Painting & Construction</h3>
-          <div class="target-biz" style="color: #f97316;">Location: Spring Grove, MN • Painting & Construction</div>
-          <p>Minnesota Driftless rust theme, agricultural pole barn spray painting, exterior home weatherproofing & cedar deck staining</p>
-          <div class="action-row">
-            <a href="samples/big-ts-painting/" target="_blank" class="btn-view" style="background: #f97316; color: #090b0e;">Open Dedicated Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-    
-    </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Plainview, TX • Plainview, Hale County & South Plains
+            </div>
+            <h3 class="card-title">Larry Dickerson Roofing LLC</h3>
+            <p class="card-trade">Architectural Roofing & Storm Restoration</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Interactive Cost Calculator</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
 
-    <!-- Leads Table Section -->
-    <h2 class="section-title">📋 1-Click Outreach Pipeline (No Copying Required)</h2>
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Business Name</th>
-            <th>Industry</th>
-            <th>Location</th>
-            <th>Contact Email / Phone</th>
-            <th>Sample</th>
-            <th>Delivery Status</th>
-            <th>1-Click Direct Action</th>
-          </tr>
-        </thead>
-        <tbody id="leadsBody">
-          <!-- Populated by JavaScript -->
-        </tbody>
-      </table>
+            <div class="card-action">
+              <a href="./samples/larry-dickerson-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="plumbing">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35);">
+              <span>PLUMBING & DRAIN SERVICES</span>
+            </div>
+            <div class="client-mark" style="background: #121b2d; border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8;">
+              BH
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Tillamook, OR • Tillamook County & Oregon Coast
+            </div>
+            <h3 class="card-title">Blue Haven Plumbing LLC</h3>
+            <p class="card-trade">Precision Plumbing & Emergency Drain Services</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Emergency Diagnostic System</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/blue-haven-plumbing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="landscaping">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1558904541-efa8c4a08931?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(74, 222, 128, 0.1); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.35);">
+              <span>LANDSCAPING & HARDSCAPING</span>
+            </div>
+            <div class="client-mark" style="background: #111f17; border: 1px solid rgba(74, 222, 128, 0.35); color: #4ade80;">
+              GL
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Pine Island, NY • Pine Island, Warwick & Hudson Valley
+            </div>
+            <h3 class="card-title">Gurda Landscaping LLC</h3>
+            <p class="card-trade">Luxury Outdoor Living & Architectural Hardscaping</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Interactive Cost Calculator</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/gurda-landscaping/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #4ade80 0%, #16a34a 50%, #15803d 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="electrical">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(239, 68, 68, 0.12); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4);">
+              <span>ELECTRICAL SERVICES</span>
+            </div>
+            <div class="client-mark" style="background: #211914; border: 1px solid rgba(239, 68, 68, 0.4); color: #ef4444;">
+              RC
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Dumas, TX • Dumas, Moore County & Panhandle
+            </div>
+            <h3 class="card-title">Red Cap Electrical Services LLC</h3>
+            <p class="card-trade">Industrial Power, 200A Panels & Smart EV Automation</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Emergency Diagnostic System</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/red-cap-electrical/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 50%, #991b1b 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="roofing">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(52, 211, 153, 0.1); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.35);">
+              <span>ROOFING & METAL ROOFS</span>
+            </div>
+            <div class="client-mark" style="background: #16231c; border: 1px solid rgba(52, 211, 153, 0.35); color: #34d399;">
+              4F
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Highlands, NC • Highlands, Cashiers & Western NC Mountains
+            </div>
+            <h3 class="card-title">Four Families Roofing LLC</h3>
+            <p class="card-trade">High-Elevation Mountain Roofing & Standing Seam Metal</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Interactive Cost Calculator</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/four-families-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #34d399 0%, #059669 50%, #047857 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="plumbing">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(14, 165, 233, 0.1); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.38);">
+              <span>PLUMBING & PIPE REPAIR</span>
+            </div>
+            <div class="client-mark" style="background: #152238; border: 1px solid rgba(14, 165, 233, 0.38); color: #0ea5e9;">
+              AP
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Refugio County, TX • Refugio, Woodsboro & Coastal Bend
+            </div>
+            <h3 class="card-title">AIM Plumbing Services</h3>
+            <p class="card-trade">Residential Plumbing, Slab Leak Pinpointing & Water Heaters</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Emergency Diagnostic System</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/aim-plumbing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="electrical">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(139, 92, 246, 0.12); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.4);">
+              <span>LICENSED ELECTRICAL CONTRACTOR</span>
+            </div>
+            <div class="client-mark" style="background: #1a1a36; border: 1px solid rgba(139, 92, 246, 0.4); color: #a78bfa;">
+              AE
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Pomona, CA • Pomona, Inland Empire & San Gabriel Valley
+            </div>
+            <h3 class="card-title">AVE. Electric LLC</h3>
+            <p class="card-trade">Commercial LED Lighting, Power Distribution & Smart Automation</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Interactive Cost Calculator</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/ave-electric/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 50%, #6d28d9 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="roofing">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(251, 146, 60, 0.1); color: #fed7aa; border: 1px solid rgba(251, 146, 60, 0.38);">
+              <span>ROOFING & DESERT COATINGS</span>
+            </div>
+            <div class="client-mark" style="background: #241e16; border: 1px solid rgba(251, 146, 60, 0.38); color: #fb923c;">
+              ER
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Yucca Valley, CA • Yucca Valley, Joshua Tree & Morongo Basin
+            </div>
+            <h3 class="card-title">Elite Roofing</h3>
+            <p class="card-trade">Desert Heat-Reflective Roofing & Spanish Tile Restoration</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Interactive Cost Calculator</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/elite-roofing/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #fb923c 0%, #ea580c 50%, #c2410c 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="electrical">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(20, 184, 166, 0.1); color: #5eead4; border: 1px solid rgba(20, 184, 166, 0.38);">
+              <span>ELECTRICAL INSPECTIONS & REPAIRS</span>
+            </div>
+            <div class="client-mark" style="background: #132334; border: 1px solid rgba(20, 184, 166, 0.38); color: #14b8a6;">
+              DE
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Camano Island, WA • Camano Island, Stanwood & Puget Sound
+            </div>
+            <h3 class="card-title">Doctor Electrical Services Inc.</h3>
+            <p class="card-trade">Island Coastal Power, Marine Docks & Backup Generators</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Emergency Diagnostic System</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/doctor-electrical/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #0f766e 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="electrical">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(234, 179, 8, 0.1); color: #fef08a; border: 1px solid rgba(234, 179, 8, 0.38);">
+              <span>RESIDENTIAL & COMMERCIAL ELECTRIC</span>
+            </div>
+            <div class="client-mark" style="background: #1e1e24; border: 1px solid rgba(234, 179, 8, 0.38); color: #eab308;">
+              NC
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Oswego, IL • Oswego, Naperville & Fox Valley
+            </div>
+            <h3 class="card-title">NuCo Electric</h3>
+            <p class="card-trade">Residential Remodel Wiring, Smart Home & EV Charging</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Interactive Cost Calculator</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/nuco-electric/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #eab308 0%, #ca8a04 50%, #a16207 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="painting">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(244, 63, 94, 0.1); color: #fecdd3; border: 1px solid rgba(244, 63, 94, 0.38);">
+              <span>PAINTING & DESIGN</span>
+            </div>
+            <div class="client-mark" style="background: #211c18; border: 1px solid rgba(244, 63, 94, 0.38); color: #fb7185;">
+              AP
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bethel, CT • Bethel, Danbury & Fairfield County
+            </div>
+            <h3 class="card-title">APM Painting & Design</h3>
+            <p class="card-trade">Luxury Interior/Exterior Painting & Fine Cabinet Spraying</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Interactive Cost Calculator</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/apm-painting/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #fb7185 0%, #e11d48 50%, #be123c 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="hvac">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(14, 165, 233, 0.1); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.38);">
+              <span>HEATING, AC & HEAT PUMPS</span>
+            </div>
+            <div class="client-mark" style="background: #132138; border: 1px solid rgba(14, 165, 233, 0.38); color: #38bdf8;">
+              WF
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Rolesville & Wake Forest, NC • Wake Forest, Rolesville & Greater Raleigh
+            </div>
+            <h3 class="card-title">Wake Forest HVAC Company</h3>
+            <p class="card-trade">High-Efficiency Heat Pumps, AC Repairs & Air Quality</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Emergency Diagnostic System</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/wake-forest-hvac/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="prototype-card" data-category="painting">
+          <div class="card-visual" style="background: linear-gradient(180deg, rgba(10,14,23,0.2) 0%, rgba(10,14,23,0.95) 100%), url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;">
+            <div class="card-badge" style="background: rgba(249, 115, 22, 0.1); color: #fed7aa; border: 1px solid rgba(249, 115, 22, 0.38);">
+              <span>PAINTING & CONSTRUCTION</span>
+            </div>
+            <div class="client-mark" style="background: #241a17; border: 1px solid rgba(249, 115, 22, 0.38); color: #f97316;">
+              BT
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Spring Grove, MN • Spring Grove, Houston County & Driftless Region
+            </div>
+            <h3 class="card-title">Big T's Painting & Construction</h3>
+            <p class="card-trade">Rural Barn Restoration, Exterior Siding & Timber Deck Staining</p>
+            
+            <div class="feature-pills">
+              <span class="pill-feat">⚡ Interactive Cost Calculator</span>
+              <span class="pill-feat">📱 1-Click Mobile Call Routing</span>
+              <span class="pill-feat">🛡️ Verified Trust Badges</span>
+              <span class="pill-feat">⚡ 0.5s Turbo Load</span>
+            </div>
+
+            <div class="card-action">
+              <a href="./samples/big-ts-painting/" target="_blank" class="btn-demo" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%); color: #000 if 'fff' in b['theme']['accent_grad'] else #fff;">
+                Explore Live Interactive Prototype ↗
+              </a>
+            </div>
+          </div>
+        </div>
+        
     </div>
+  </main>
 
-  </div>
-
-  <!-- Email Modal -->
-  <div id="emailModal">
-    <div class="modal-content">
-      <h3 id="modalBizTitle">Personalized Outreach Email</h3>
-      <p style="color: #9ca3af; font-size: 0.88rem;">Review the generated pitch below or deliver it with one click:</p>
-      <textarea id="modalEmailText" class="modal-textarea"></textarea>
-      <div class="modal-actions">
-        <button class="btn-close" onclick="closeModal()">Close</button>
-        <div class="modal-right-actions">
-          <button class="btn-action-preview" onclick="copyModalText()">📋 Copy Text</button>
-          <a id="modalMailtoBtn" href="#" class="btn-action-preview" style="text-decoration: none;">✉️ Mail App</a>
-          <button id="modalApiBtn" class="btn-action-api" onclick="sendModalApi()">🚀 Auto-Send API</button>
-          <a id="modalGmailBtn" href="#" target="_blank" class="btn-action-gmail" onclick="markCurrentSent()">⚡ 1-Click Send (Gmail)</a>
+  <!-- Agency Engineering Values -->
+  <section class="container">
+    <div class="value-section">
+      <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; color: white; text-align: center;">The Antigravity Engineering Standard</h3>
+      <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 10px auto 0;">Why America's most established roofers, electricians, and plumbers upgrade to our custom digital framework.</p>
+      
+      <div class="value-grid">
+        <div class="value-card">
+          <h4>🚀 Sub-Second Load Speeds</h4>
+          <p>Zero slow WordPress plugins, heavy databases, or bloated page builders. Handcrafted vanilla CSS & HTML running on ultra-fast global edge CDNs.</p>
+        </div>
+        <div class="value-card">
+          <h4>🧮 Interactive Project Estimators</h4>
+          <p>Homeowners can immediately calculate project square footage and receive instant ballpark estimates, filtering out tire-kickers before your phone rings.</p>
+        </div>
+        <div class="value-card">
+          <h4>🛡️ High-Trust Local Architecture</h4>
+          <p>Deep integration of your local Chamber of Commerce seals, master license certifications, and Google review counters to justify premium pricing.</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Client Inquiry & Claim Banner -->
+  <section class="container">
+    <div class="cta-banner">
+      <h2>Ready to Claim or Customize Your Website?</h2>
+      <p>Each design can be connected to your official company domain (.com) with full cloud hosting, SSL encryption, and direct lead routing in under 24 hours.</p>
+      <div class="cta-actions">
+        <a href="mailto:skykingly1@gmail.com?subject=Website%20Inquiry%20-%20Antigravity%20Digital%20Agency" class="btn-claim">
+          Claim Your Prototype ($199 Flat)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 8px;"><strong>Antigravity Digital Agency</strong> • High-Performance Web Systems for Trade Professionals</p>
+      <p style="font-size: 0.85rem;">Founder: Sky King • Direct Inquiries: <a href="mailto:skykingly1@gmail.com">skykingly1@gmail.com</a></p>
+      <p style="font-size: 0.8rem; margin-top: 14px; color: #64748b;">© 2026 Antigravity Digital Agency. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
-    const leads = [
-  {
-    "id": "larry-dickerson-roofing",
-    "name": "Larry Dickerson Roofing LLC",
-    "niche": "Roofing & Storm Restoration",
-    "loc": "Plainview, TX",
-    "source": "Plainview Texas Chamber",
-    "email": "larrydickersonroofing@gmail.com",
-    "phone": "(806) 429-5009",
-    "sample": "samples/larry-dickerson-roofing/",
-    "color": "#cbd5e1",
-    "bg_banner": "linear-gradient(135deg, #090b0e 0%, #334155 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#e2e8f0\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><polyline points=\"9 22 9 12 15 12 15 22\"/></svg>",
-    "pitch": "Platinum Silver theme, Texas hail storm damage estimator & instant photo inspection scheduler"
-  },
-  {
-    "id": "blue-haven-plumbing",
-    "name": "Blue Haven Plumbing LLC",
-    "niche": "Plumbing & Drain Services",
-    "loc": "Tillamook, OR",
-    "source": "Tillamook Area Chamber",
-    "email": "bluehavenplumbing@gmail.com",
-    "phone": "(503) 842-8877",
-    "sample": "samples/blue-haven-plumbing/",
-    "color": "#38bdf8",
-    "bg_banner": "linear-gradient(135deg, #080c14 0%, #0369a1 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#38bdf8\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\"/></svg>",
-    "pitch": "Coastal azure theme, 24/7 emergency dispatch selector, tankless water heaters & sewer jetting"
-  },
-  {
-    "id": "gurda-landscaping",
-    "name": "Gurda Landscaping LLC",
-    "niche": "Landscaping & Hardscaping",
-    "loc": "Pine Island, NY",
-    "source": "Pine Island Chamber",
-    "email": "gurdalandscape@gmail.com",
-    "phone": "(845) 683-1314",
-    "sample": "samples/gurda-landscaping/",
-    "color": "#4ade80",
-    "bg_banner": "linear-gradient(135deg, #070c09 0%, #15803d 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#4ade80\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"8\" height=\"8\" rx=\"1\"/><rect x=\"13\" y=\"3\" width=\"8\" height=\"8\" rx=\"1\"/><rect x=\"3\" y=\"13\" width=\"8\" height=\"8\" rx=\"1\"/><rect x=\"13\" y=\"13\" width=\"8\" height=\"8\" rx=\"1\"/></svg>",
-    "pitch": "Emerald forest aesthetic, Unilock patio estimator, natural stone retaining walls & estate turf maintenance"
-  },
-  {
-    "id": "red-cap-electrical",
-    "name": "Red Cap Electrical Services LLC",
-    "niche": "Electrical Contractor",
-    "loc": "Dumas, TX",
-    "source": "Dumas Area Chamber",
-    "email": "redcelectricservs@gmail.com",
-    "phone": "(806) 935-4421",
-    "sample": "samples/red-cap-electrical/",
-    "color": "#ef4444",
-    "bg_banner": "linear-gradient(135deg, #0c0a09 0%, #991b1b 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 2 3 14h9l-1 8 10-12h-9l1-8z\"/></svg>",
-    "pitch": "High-voltage crimson & onyx theme, 200A breaker panel upgrades, Level-2 EV charging & ranch power"
-  },
-  {
-    "id": "four-families-roofing",
-    "name": "Four Families Roofing LLC",
-    "niche": "Mountain & Metal Roofing",
-    "loc": "Highlands, NC",
-    "source": "Highlands Chamber",
-    "email": "letmeroofme@gmail.com",
-    "phone": "(828) 634-1664",
-    "sample": "samples/four-families-roofing/",
-    "color": "#34d399",
-    "bg_banner": "linear-gradient(135deg, #080c0a 0%, #047857 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#34d399\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg>",
-    "pitch": "Alpine forest emerald theme, standing seam metal roofing, heavy snow defense & drone video audits"
-  },
-  {
-    "id": "aim-plumbing",
-    "name": "AIM Plumbing Services",
-    "niche": "Plumbing & Pipe Repair",
-    "loc": "Refugio County, TX",
-    "source": "Refugio County Chamber",
-    "email": "aimplumbingservices@gmail.com",
-    "phone": "(361) 526-7890",
-    "sample": "samples/aim-plumbing/",
-    "color": "#0ea5e9",
-    "bg_banner": "linear-gradient(135deg, #080d16 0%, #0369a1 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"m4.93 4.93 4.24 4.24\"/><path d=\"m14.83 9.17 4.24-4.24\"/></svg>",
-    "pitch": "Coastal bend cyan theme, acoustic under-slab leak detection, water heater replacements & cleanouts"
-  },
-  {
-    "id": "ave-electric",
-    "name": "AVE. Electric LLC",
-    "niche": "Licensed Electrical Contractor",
-    "loc": "Pomona, CA",
-    "source": "Pomona Chamber",
-    "email": "ave.3lectric@gmail.com",
-    "phone": "(909) 620-1940",
-    "sample": "samples/ave-electric/",
-    "color": "#a78bfa",
-    "bg_banner": "linear-gradient(135deg, #0a0a14 0%, #6d28d9 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#a78bfa\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 2 3 14h9l-1 8 10-12h-9l1-8z\"/></svg>",
-    "pitch": "Electric violet theme, commercial LED high-bay retrofits, California Title 24 compliance & smart building automation"
-  },
-  {
-    "id": "elite-roofing",
-    "name": "Elite Roofing",
-    "niche": "Roofing & Desert Coatings",
-    "loc": "Yucca Valley, CA",
-    "source": "Yucca Valley Chamber",
-    "email": "phil.eliteroofing@gmail.com",
-    "phone": "(760) 449-6835",
-    "sample": "samples/elite-roofing/",
-    "color": "#fb923c",
-    "bg_banner": "linear-gradient(135deg, #0c0a08 0%, #c2410c 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#fb923c\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2v20M2 12h20\"/><path d=\"m4.93 4.93 14.14 14.14\"/></svg>",
-    "pitch": "Mojave terracotta theme, elastomeric silicone cool roof coatings that drop rooftop heat 25\u00b0F & Spanish tile relay"
-  },
-  {
-    "id": "doctor-electrical",
-    "name": "Doctor Electrical Services Inc.",
-    "niche": "Electrical Inspections & Repairs",
-    "loc": "Camano Island, WA",
-    "source": "Camano Island Chamber",
-    "email": "doctorelectricalservices@gmail.com",
-    "phone": "(360) 387-9912",
-    "sample": "samples/doctor-electrical/",
-    "color": "#14b8a6",
-    "bg_banner": "linear-gradient(135deg, #060c12 0%, #0f766e 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#14b8a6\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M9 17V7h4a3 3 0 0 1 0 6H9\"/></svg>",
-    "pitch": "Pacific Northwest teal theme, standby generator transfer switches, salt-air corrosion resistant panels & dock wiring"
-  },
-  {
-    "id": "nuco-electric",
-    "name": "NuCo Electric",
-    "niche": "Residential & Commercial Electric",
-    "loc": "Oswego, IL",
-    "source": "Oswego Area Chamber",
-    "email": "nucoelectric@gmail.com",
-    "phone": "(630) 554-7100",
-    "sample": "samples/nuco-electric/",
-    "color": "#eab308",
-    "bg_banner": "linear-gradient(135deg, #0a0a0c 0%, #a16207 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#eab308\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 2 3 14h9l-1 8 10-12h-9l1-8z\"/></svg>",
-    "pitch": "Fox Valley amber theme, finished basement canless lighting, clean EMT conduit runs & 240V Tesla garage stations"
-  },
-  {
-    "id": "apm-painting",
-    "name": "APM Painting & Design",
-    "niche": "Painting & Design",
-    "loc": "Bethel, CT",
-    "source": "Bethel Chamber of Commerce",
-    "email": "apmpainting25@gmail.com",
-    "phone": "(203) 791-8844",
-    "sample": "samples/apm-painting/",
-    "color": "#fb7185",
-    "bg_banner": "linear-gradient(135deg, #0c0b0a 0%, #be123c 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#fb7185\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"8\" height=\"8\" rx=\"1\"/><rect x=\"13\" y=\"3\" width=\"8\" height=\"8\" rx=\"1\"/><rect x=\"3\" y=\"13\" width=\"8\" height=\"8\" rx=\"1\"/><rect x=\"13\" y=\"13\" width=\"8\" height=\"8\" rx=\"1\"/></svg>",
-    "pitch": "Fairfield rose-cashmere aesthetic, factory-finish kitchen cabinet spraying, HEPA dustless sanding & exterior weatherproofing"
-  },
-  {
-    "id": "wake-forest-hvac",
-    "name": "Wake Forest HVAC Company",
-    "niche": "Heating, AC & Heat Pumps",
-    "loc": "Rolesville & Wake Forest, NC",
-    "source": "Rolesville Chamber of Commerce",
-    "email": "wafohvac@gmail.com",
-    "phone": "(919) 556-9180",
-    "sample": "samples/wake-forest-hvac/",
-    "color": "#38bdf8",
-    "bg_banner": "linear-gradient(135deg, #070c14 0%, #0369a1 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#38bdf8\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2v20M2 12h20\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/></svg>",
-    "pitch": "Carolina ice-blue theme, 18+ SEER2 variable inverter heat pumps, Duke Energy rebates & 24/7 no-cool emergency repair"
-  },
-  {
-    "id": "big-ts-painting",
-    "name": "Big T's Painting & Construction",
-    "niche": "Painting & Construction",
-    "loc": "Spring Grove, MN",
-    "source": "Spring Grove Chamber of Commerce",
-    "email": "ladsten1@gmail.com",
-    "phone": "(507) 498-5520",
-    "sample": "samples/big-ts-painting/",
-    "color": "#f97316",
-    "bg_banner": "linear-gradient(135deg, #0c0908 0%, #c2410c 100%)",
-    "icon": "<svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg>",
-    "pitch": "Minnesota Driftless rust theme, agricultural pole barn spray painting, exterior home weatherproofing & cedar deck staining"
-  }
-];
-    let activeModalIndex = 0;
+    function filterCards(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    // Load sent state from localStorage
-    function getSentState() {
-      try {
-        return JSON.parse(localStorage.getItem('skyking_sent_leads') || '{}');
-      } catch (e) {
-        return {};
-      }
-    }
-
-    function markLeadSent(id) {
-      const state = getSentState();
-      state[id] = new Date().toISOString();
-      localStorage.setItem('skyking_sent_leads', JSON.stringify(state));
-      renderTable();
-    }
-
-    function buildEmail(l) {
-      const liveUrl = 'https://skyking-client-previews.surge.sh/' + l.sample;
-      const subject = `${l.name}: built a live website prototype for your team (no cost)`;
-      const body = `Hi ${l.name} Team,
-
-I'll keep this short because I know you're busy running jobs in ${l.loc}.
-
-I was researching top-rated ${l.niche.toLowerCase()} contractors on the ${l.source} directory and noticed something surprising: you have great local reputation and craftsmanship, but when homeowners in ${l.loc} search for your business on their phone, they hit a dead end with no official website.
-
-Right now, out-of-town franchises and lead-broker middle-men are capturing high-ticket ${l.niche.toLowerCase()} jobs in your backyard simply because they show up first with a polished mobile page.
-
-Instead of sending you an annoying sales pitch, I decided to build you the solution upfront.
-
-Last night, I designed and coded a complete, modern interactive website custom-tailored for ${l.name}. It is 100% functional and live right now:
-
-👉 Test Drive Your Prototype: ${liveUrl}
-
-Take 30 seconds to tap around on your phone:
-• Instant Project Cost Calculator: Lets homeowners in ${l.loc} get immediate estimates and filters out tire-kickers.
-• 1-Click Direct Emergency Dispatch: Routes emergency calls straight to your line (${l.phone}).
-• Fast Lead Capture Form: Pushes qualified customer project requests directly to your inbox (${l.email}).
-• Clean Chamber of Commerce & Licensed/Insured Trust Badges: Builds instant credibility so you can charge premium rates.
-• Blazing 0.5s Load Time: Fully responsive across iPhone, Android, and Desktop.
-
-Most web agencies charge $3,000–$5,000 upfront and take 6 to 8 weeks. We think that's crazy for hard-working trades.
-
-Since I already did the design and coding work for you, you can claim this complete site under your own domain name (.com) with lightning-fast cloud hosting and SSL security for an affordable flat $199 (or $29/mo with zero contracts).
-
-If you want to keep it and launch it this week, simply reply "I'm interested" to this email and I'll handle the rest for you.
-
-If not, no worries at all—feel free to use the preview link as inspiration. Keep up the great work serving ${l.loc}!
-
-Best regards,
-Sky King
-Founder, Antigravity Digital Agency
-Email: skykingly1@gmail.com`;
-      return { subject, body };
-    }
-
-    function getGmailComposeUrl(email, subject, body) {
-      return `https://mail.google.com/mail/u/skykingly1@gmail.com/?view=cm&fs=1&authuser=skykingly1@gmail.com&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    }
-
-    function renderTable() {
-      const tbody = document.getElementById('leadsBody');
-      tbody.innerHTML = '';
-      const sentState = getSentState();
-      let sentCount = 0;
-
-      leads.forEach((l, index) => {
-        const isSent = Boolean(sentState[l.id]);
-        if (isSent) sentCount++;
-        const { subject, body } = buildEmail(l);
-        const gmailUrl = getGmailComposeUrl(l.email, subject, body);
-        const mailtoUrl = `mailto:${l.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td><strong>${l.name}</strong></td>
-          <td>${l.niche}</td>
-          <td>${l.loc}</td>
-          <td>
-            <div style="font-weight: 600; color: #38bdf8;">${l.email}</div>
-            <div style="font-size: 0.8rem; color: #94a3b8;">${l.phone}</div>
-          </td>
-          <td>
-            <a href="${l.sample}" target="_blank" style="color: ${l.color}; text-decoration: none; font-weight: 700;">Open Demo ↗</a>
-          </td>
-          <td>
-            <span class="status-badge ${isSent ? 'status-delivered' : 'status-pending'}">
-              ${isSent ? 'Delivered ✉️' : 'Pending ⏳'}
-            </span>
-          </td>
-          <td>
-            <div class="table-actions">
-              <a href="${gmailUrl}" target="_blank" class="btn-action-gmail" onclick="markLeadSent('${l.id}')">
-                ⚡ 1-Click Send (Gmail)
-              </a>
-              <button class="btn-action-api" onclick="sendDirectApi('${l.id}', '${l.name}', '${l.email}')">
-                🚀 Auto-Send API
-              </button>
-              <button class="btn-action-preview" onclick="openEmailModal(${index})">
-                Review Pitch
-              </button>
-            </div>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-
-      document.getElementById('sentCount').innerText = `${sentCount} / ${leads.length}`;
-    }
-
-    async function sendDirectApi(id, name, email) {
-      const l = leads.find(item => item.id === id);
-      const { subject, body } = buildEmail(l);
-
-      try {
-        const resp = await fetch('http://localhost:5050/api/send', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            recipient: email,
-            lead_name: name,
-            subject: subject,
-            body: body
-          })
-        });
-        const res = await resp.json();
-        if (res.success) {
-          markLeadSent(id);
-          alert(`✅ Delivered directly from skykingly1@gmail.com to ${email}!`);
+      const cards = document.querySelectorAll('.prototype-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
         } else {
-          alert(`⚠️ Backend Notice: ${res.error || 'Server not configured'}
-
-Opening 1-Click Gmail compose (skykingly1@gmail.com)...`);
-          const gmailUrl = getGmailComposeUrl(email, subject, body);
-          window.open(gmailUrl, '_blank');
-          markLeadSent(id);
+          card.style.display = 'none';
         }
-      } catch (err) {
-        alert(`ℹ️ Outreach Server not running locally.
-
-Opening 1-Click Gmail directly under skykingly1@gmail.com...`);
-        const gmailUrl = getGmailComposeUrl(email, subject, body);
-        window.open(gmailUrl, '_blank');
-        markLeadSent(id);
-      }
-    }
-
-    function openEmailModal(index) {
-      activeModalIndex = index;
-      const l = leads[index];
-      const { subject, body } = buildEmail(l);
-
-      document.getElementById('modalBizTitle').innerText = `Personalized Pitch: ${l.name}`;
-      document.getElementById('modalEmailText').value = body;
-
-      const gmailUrl = getGmailComposeUrl(l.email, subject, body);
-      const mailtoUrl = `mailto:${l.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      document.getElementById('modalGmailBtn').href = gmailUrl;
-      document.getElementById('modalMailtoBtn').href = mailtoUrl;
-
-      document.getElementById('emailModal').style.display = 'flex';
-    }
-
-    function markCurrentSent() {
-      const l = leads[activeModalIndex];
-      markLeadSent(l.id);
-      closeModal();
-    }
-
-    function sendModalApi() {
-      const l = leads[activeModalIndex];
-      const editedBody = document.getElementById('modalEmailText').value;
-      const subject = `Quick question about ${l.name} / preview website`;
-
-      fetch('http://localhost:5050/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          recipient: l.email,
-          lead_name: l.name,
-          subject: subject,
-          body: editedBody
-        })
-      }).then(r => r.json()).then(res => {
-        if (res.success) {
-          markLeadSent(l.id);
-          alert(`✅ Delivered directly to ${l.email}!`);
-          closeModal();
-        } else {
-          alert(`Notice: ${res.error}`);
-        }
-      }).catch(err => {
-        alert("Outreach server is not running on http://localhost:5050. Run 'python outreach_server.py' in your terminal or click '⚡ 1-Click Send (Gmail)'.");
       });
     }
-
-    function closeModal() {
-      document.getElementById('emailModal').style.display = 'none';
-    }
-
-    function copyModalText() {
-      const copyText = document.getElementById("modalEmailText");
-      copyText.select();
-      navigator.clipboard.writeText(copyText.value);
-      alert("Personalized email copied to clipboard!");
-    }
-
-    // Initial table render
-    renderTable();
   </script>
 </body>
 </html>
