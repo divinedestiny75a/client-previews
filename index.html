@@ -819,29 +819,36 @@
     }
 
     function buildEmail(l) {
-      const liveUrl = 'https://divinedestiny75a.github.io/client-previews/' + l.sample;
-      const subject = `Quick question about ${l.name} / preview website`;
+      const liveUrl = 'https://skyking-client-previews.surge.sh/' + l.sample;
+      const subject = `${l.name}: built a live website prototype for your team (no cost)`;
       const body = `Hi ${l.name} Team,
 
-I came across your listing on the ${l.source} directory and noticed that ${l.name} does not have an official website connected to your listing yet.
+I'll keep this short because I know you're busy running jobs in ${l.loc}.
 
-Because homeowners and commercial clients in ${l.loc} look for established contractors online, most local businesses are stuck with either no website or clunky 10-year-old templates that lose clients to big franchises.
+I was researching top-rated ${l.niche.toLowerCase()} contractors on the ${l.source} directory and noticed something surprising: you have great local reputation and craftsmanship, but when homeowners in ${l.loc} search for your business on their phone, they hit a dead end with no official website.
 
-To show you how an award-winning modern digital presence should look, I went ahead and custom-built a modern interactive website preview tailored specifically for ${l.name}:
+Right now, out-of-town franchises and lead-broker middle-men are capturing high-ticket ${l.niche.toLowerCase()} jobs in your backyard simply because they show up first with a polished mobile page.
 
-👉 Live Interactive Demo: ${liveUrl}
+Instead of sending you an annoying sales pitch, I decided to build you the solution upfront.
 
-What I built into this design:
-• Custom branding, colors, and service offerings for ${l.name}
-• Interactive Cost Estimator & Diagnostic Selector for potential clients in ${l.loc}
-• High-resolution transformation gallery with atmospheric trade photography
-• Floating glass navigation with 1-click mobile emergency call routing to your team (${l.phone})
-• Instant Free Quote generator sending qualified customer leads straight to your email (${l.email})
-• Clean Chamber of Commerce & master license trust seals
+Last night, I designed and coded a complete, modern interactive website custom-tailored for ${l.name}. It is 100% functional and live right now:
 
-Web design agencies typically bill $3,000–$5,000 for custom Framer/Webflow sites like this. However, we set these up for local trade owners for an affordable flat $199 (or $29/mo including high-speed AWS hosting, security SSL, and domain connection).
+👉 Test Drive Your Prototype: ${liveUrl}
 
-If you'd like to claim this design and have it live on Google under your own domain, simply reply to this email! If not, no worries at all—keep up the great work serving ${l.loc}.
+Take 30 seconds to tap around on your phone:
+• Instant Project Cost Calculator: Lets homeowners in ${l.loc} get immediate estimates and filters out tire-kickers.
+• 1-Click Direct Emergency Dispatch: Routes emergency calls straight to your line (${l.phone}).
+• Fast Lead Capture Form: Pushes qualified customer project requests directly to your inbox (${l.email}).
+• Clean Chamber of Commerce & Licensed/Insured Trust Badges: Builds instant credibility so you can charge premium rates.
+• Blazing 0.5s Load Time: Fully responsive across iPhone, Android, and Desktop.
+
+Most web agencies charge $3,000–$5,000 upfront and take 6 to 8 weeks. We think that's crazy for hard-working trades.
+
+Since I already did the design and coding work for you, you can claim this complete site under your own domain name (.com) with lightning-fast cloud hosting and SSL security for an affordable flat $199 (or $29/mo with zero contracts).
+
+If you want to keep it and launch it this week, simply reply "I'm interested" to this email and I'll handle the rest for you.
+
+If not, no worries at all—feel free to use the preview link as inspiration. Keep up the great work serving ${l.loc}!
 
 Best regards,
 Sky King

@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "skyking-client-previews",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "LEAD_PROSPECT_DATABASE.csv",
+      "OUTREACH_STRATEGY_&_TEMPLATES.md"
+    ]
+  }
+}
